@@ -1,3 +1,5 @@
 # ResumeMining
 
-Dataset source: [text](https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset)
+**Dataset source:** https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset
+
+**Install requirements:** <code>pip install -r requirements.txt</code>
