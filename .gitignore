@@ -1,0 +1,5 @@
+# Ignora la cartella .ipynb_checkpoints
+.ipynb_checkpoints/
+
+# Ignora la directory dataset
+dataset/
