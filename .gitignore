@@ -1,5 +1,8 @@
-# Ignora la cartella .ipynb_checkpoints
+# Ignore the .ipynb_checkpoints directory
 .ipynb_checkpoints/
 
-# Ignora la directory dataset
+# Ignore the dataset directory
 dataset/
+
+# Ignore the processed_data directory
+processed_data/
