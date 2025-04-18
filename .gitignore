@@ -6,3 +6,5 @@ dataset/
 
 # Ignore the processed_data directory
 processed_data/
+
+datasetModificato/
