@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cosine Similarity</title>
+    <style>
+        body { font-family: Arial; padding: 2em; max-width: 600px; margin: auto; }
+        textarea { width: 100%; height: 100px; margin-bottom: 1em; }
+        button { padding: 0.5em 1em; }
+    </style>
+</head>
+<body>
+    <h1>Calcolo della Cosine Similarity</h1>
+    <form method="post">
+        <label>Testo 1:</label>
+        <textarea name="text1" required></textarea>
+
+        <label>Testo 2:</label>
+        <textarea name="text2" required></textarea>
+
+        <button type="submit">Calcola Similarità</button>
+    </form>
+
+    {% if similarity is not none %}
+        <h3>Risultato: {{ similarity }}</h3>
+    {% endif %}
+</body>
+</html>
