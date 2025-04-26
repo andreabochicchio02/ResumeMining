@@ -1,24 +1,27 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from sentence_transformers import SentenceTransformer, util
 
 app = Flask(__name__)
-model = SentenceTransformer('all-mpnet-base-v2')  # modello piccolo e veloce
+model = SentenceTransformer('all-mpnet-base-v2')
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
-    similarity = None
-    if request.method == "POST":
-        text1 = request.form["text1"]
-        text2 = request.form["text2"]
+    return render_template("index.html")
 
-        # Genera embeddings semantici
-        embeddings = model.encode([text1, text2], convert_to_tensor=True)
+@app.route("/calcola_similarita", methods=["POST"])
+def calcola_similarita():
+    dati = request.get_json()
+    text1 = dati.get("text1", "")
+    text2 = dati.get("text2", "")
 
-        # Calcola cosine similarity
-        similarity_score = util.cos_sim(embeddings[0], embeddings[1])
-        similarity = round(similarity_score.item(), 4)
+    # Genera embeddings
+    embeddings = model.encode([text1, text2], convert_to_tensor=True)
 
-    return render_template("index.html", similarity=similarity)
+    # Calcola cosine similarity
+    similarity_score = util.cos_sim(embeddings[0], embeddings[1])
+    similarity = round(similarity_score.item(), 4)
+
+    return jsonify({"similarity": similarity})
 
 if __name__ == "__main__":
     app.run(debug=True)
