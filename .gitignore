@@ -9,3 +9,5 @@ processed_data/
 processed_data2/
 
 datasetModificato/
+
+__pycache__/
