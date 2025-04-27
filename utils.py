@@ -12,10 +12,13 @@ def save_experiment_TFIDF(tfidf_vect, grid_search, Model_best, X_train, y_train,
     )
 
     best_clf = grid_search.best_estimator_.named_steps['clf']
+    raw = grid_search.best_params_
     model_name = type(best_clf).__name__
-    model_params = best_clf.get_params()
-    model_descr = f"{model_name}(" + ", ".join(f"{k}={v}" for k, v in model_params.items() if k in grid_search.best_params_) + ")"
-
+    model_descr = (
+        f"{model_name}(" 
+        + ", ".join(f"{k}={v}" for k, v in raw.items())
+        + ")"
+    )
     train_acc = Model_best.score(X_train, y_train)
     test_acc  = Model_best.score(X_test, y_test)
 
@@ -44,7 +47,7 @@ def save_experiment_TFIDF(tfidf_vect, grid_search, Model_best, X_train, y_train,
 
 def save_experiment_W2V(w2v_model, grid_search, Model_best, X_train, y_train, X_test, y_test):
     w2v_descr = (
-        f"D2V("
+        f"W2V("
         f"vector_size={w2v_model.vector_size}, "
         f"window={w2v_model.window}, "
         f"min_count={w2v_model.min_count}, "
@@ -53,9 +56,13 @@ def save_experiment_W2V(w2v_model, grid_search, Model_best, X_train, y_train, X_
     )
 
     best_clf = grid_search.best_estimator_.named_steps['clf']
+    raw = grid_search.best_params_
     model_name = type(best_clf).__name__
-    model_params = best_clf.get_params()
-    model_descr = f"{model_name}(" + ", ".join(f"{k}={v}" for k, v in model_params.items() if k in grid_search.best_params_) + ")"
+    model_descr = (
+        f"{model_name}(" 
+        + ", ".join(f"{k}={v}" for k, v in raw.items())
+        + ")"
+    )
 
     train_acc = Model_best.score(X_train, y_train)
     test_acc  = Model_best.score(X_test, y_test)
@@ -95,9 +102,13 @@ def save_experiment_D2V(d2v_model, grid_search, Model_best, X_train, y_train, X_
     )
 
     best_clf = grid_search.best_estimator_.named_steps['clf']
+    raw = grid_search.best_params_
     model_name = type(best_clf).__name__
-    model_params = best_clf.get_params()
-    model_descr = f"{model_name}(" + ", ".join(f"{k}={v}" for k, v in model_params.items() if k in grid_search.best_params_) + ")"
+    model_descr = (
+        f"{model_name}(" 
+        + ", ".join(f"{k}={v}" for k, v in raw.items())
+        + ")"
+    )
 
     train_acc = Model_best.score(X_train, y_train)
     test_acc  = Model_best.score(X_test, y_test)
@@ -131,9 +142,13 @@ def save_experiment_BERT(grid_search, Model_best, X_train_embed, y_train, X_test
     )
 
     best_clf = grid_search.best_estimator_.named_steps['clf']
+    raw = grid_search.best_params_
     model_name = type(best_clf).__name__
-    model_params = best_clf.get_params()
-    model_descr = f"{model_name}(" + ", ".join(f"{k}={v}" for k, v in model_params.items() if k in grid_search.best_params_) + ")"
+    model_descr = (
+        f"{model_name}(" 
+        + ", ".join(f"{k}={v}" for k, v in raw.items())
+        + ")"
+    )
 
     train_acc = Model_best.score(X_train_embed, y_train)
     test_acc  = Model_best.score(X_test_embed, y_test)

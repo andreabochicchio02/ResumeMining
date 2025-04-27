@@ -1,0 +1,6 @@
+LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.998, test=0.692
+LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.689, test=0.590
+LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=100, window=5, min_count=2, epochs=10) | Accuracy train=0.873, test=0.573
+LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=5, min_count=2, dm=False, epochs=10) | Accuracy train=0.751, test=0.577
+LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=5, min_count=2, dm=True, epochs=20) | Accuracy train=0.638, test=0.553
+LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=200, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.740, test=0.606
