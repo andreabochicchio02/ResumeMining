@@ -1,49 +1,27 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cosine Similarity</title>
-    <style>
-        body { font-family: Arial; padding: 2em; max-width: 600px; margin: auto; }
-        textarea { width: 100%; height: 100px; margin-bottom: 1em; }
-        button { padding: 0.5em 1em; }
-        #risultato { margin-top: 1em; font-size: 1.2em; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Classification</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="../static/js/index.js"></script>
 </head>
 <body>
-    <h1>Calcolo della Cosine Similarity</h1>
+    <header>
+        <p id="Title">Resume Classification</p>
+    </header>
 
-    <form id="similarityForm">
-        <label>Testo 1:</label>
-        <textarea id="text1" required></textarea>
-
-        <label>Testo 2:</label>
-        <textarea id="text2" required></textarea>
-
-        <button type="submit">Calcola Similarità</button>
-    </form>
-
-    <div id="risultato"></div>
-
-    <script>
-        const form = document.getElementById('similarityForm');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Impedisce il refresh della pagina
-
-            const text1 = document.getElementById('text1').value;
-            const text2 = document.getElementById('text2').value;
-
-            const response = await fetch('/calcola_similarita', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ text1, text2 })
-            });
-
-            const data = await response.json();
-            document.getElementById('risultato').innerHTML = `<strong>Risultato:</strong> ${data.similarity}`;
-        });
-    </script>
+    <main>
+        <p id="subTitle">Welcome! Type your job ad to find the most qualified candidates</p>
+        <div class="container" id="container">
+            <form class="form" id="form">
+                <textarea placeholder="Type something..." class="input-text" id="textarea"></textarea>
+                <button type="submit" class="submit-button" id="submit-button">
+                    ➤
+                </button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>

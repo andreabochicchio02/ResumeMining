@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#Title {
+    margin: 0.5em;
+    font-size: 30px;
+    color: black;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+}
+
+#subTitle {
+    margin-top: 180px;
+    color: black;
+    font-size: x-large;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    position: fixed;           /* rimane ancorata al viewport */
+    top: 300px;                /* ora fissata 200px dall'alto */
+    left: 50%;
+    transform: translateX(-50%);/* solo traslazione orizzontale */
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    border: 1px solid #e0e0e0;
+    background: white;
+    transition:
+        transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
+        width     0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* classe da aggiungere via JS */
+.container.move-down {
+    transform: translateX(-50%) translateY(calc(100vh/2 - 70px));
+    width: 45%;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    border: None;
+    width: 100%;
+}
+
+.input-text {
+    border: None;
+    width: 95%;
+    max-height: 150px; /* altezza massima se vuoi */
+    padding: 0rem 1rem 0rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: none; /* blocca il resize manuale, gestiamo tutto noi */
+    overflow-y: auto; /* mostra scroll se supera max-height */
+    transition: 0.3s;
+}
+
+.input-text:focus {
+    outline: none;
+}
+
+.submit-button {    
+    width: 2em;
+    height: 2em;
+    background: #36679B;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #4b7bb5;
+}
