@@ -16,22 +16,22 @@ main {
     flex-direction: column;
     align-items: center;
     background: white;
+    justify-content: center;
 }
 
 #subTitle {
-    margin-top: 180px;
+    margin-top: 130px;
     color: black;
     font-size: x-large;
+    width: 100%;
+    text-align: center;
 }
 
 .container {
     display: flex;
-    align-items: center;
-    position: fixed;           /* rimane ancorata al viewport */
-    top: 300px;                /* ora fissata 200px dall'alto */
-    left: 50%;
-    transform: translateX(-50%);/* solo traslazione orizzontale */
+    flex-direction: column;
     padding: 1rem;
+    margin-top: 30px;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     width: 50%;
@@ -44,7 +44,7 @@ main {
 
 /* classe da aggiungere via JS */
 .container.move-down {
-    transform: translateX(-50%) translateY(calc(100vh/2 - 70px));
+    transform: translateY(calc(100vh/2 - 70px));
     width: 45%;
 }
 
@@ -87,3 +87,171 @@ main {
 .submit-button:hover {
     background-color: #4b7bb5;
 }
+
+.results-table {
+    /* Usa separate per far funzionare border-radius */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px;
+    overflow: hidden;               /* taglia i bordi dei figli */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    /* STILE INIZIALE (nascosta) */
+    opacity: 0;
+    transform: translateY(-20px);
+
+    /* TRANSITION */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Stato “visibile”: parte la transition */
+.results-table.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.results-table th, .results-table td {
+    padding: 12px 40px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.results-table th {
+    font-size: 1em;
+}
+
+.results-table td {
+    font-size: 0.8em;
+}
+
+/* Angoli superiori arrotondati */
+.results-table th:first-child {
+    border-top-left-radius: 10px;
+}
+.results-table th:last-child {
+    border-top-right-radius: 10px;
+}
+
+/* Angoli inferiori arrotondati */
+.results-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+.results-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.results-table th {
+    background-color: white;
+    font-weight: bold;
+}
+
+.results-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.download-btn {
+    background-color: #36679B;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.download-btn:hover {
+    background-color: #4b7bb5;
+}
+
+/**-----------------------------------------------------------------------------------------------------------*/
+header {
+    position: relative;
+    height: 70px;
+    margin-top: 40px;
+}
+
+.toggle-switch {
+    border: 1px solid #e0e0e0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 40%;
+    height: 100%;
+}
+
+.toggle-btn {
+    border: none;
+    padding: 10px 20px;
+    background-color: transparent;
+    cursor: pointer;
+    flex: 1;
+    font-size: 1.5em;
+    transition: color 0.3s;
+    z-index: 1;
+}
+
+.toggle-btn.active {
+    color: white;
+}
+
+#toggle-indicator {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #36679B;
+    border-radius: 25px;
+    top: 0;
+    left: 0;
+    transition: left 0.3s;
+    z-index: 0;
+}
+
+.upload-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    padding: 8px 12px;
+    width: 300px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;        /* 8px arrotondati */
+    background-color: #fafafa;
+    color: #333;
+    font-size: 0.7rem;          /* ~14px */
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+.upload-button:hover,
+.upload-button:focus {
+    background-color: #36679B;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.upload-button:active {
+    background-color: #2b517a;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.upload-button::-webkit-file-upload-button {
+    visibility: hidden;  /* Nasconde il default button interno sui WebKit */
+}
+
+.upload-button::before {
+    content: '📎 Upload File';
+    display: inline-block;
+    pointer-events: none;
+}
+
+/* Permette di clickare l’intero elemento come fosse l’input */
+.upload-button {
+    position: relative;
+    overflow: hidden;
+} 

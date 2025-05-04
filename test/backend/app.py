@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file, abort
 from sentence_transformers import SentenceTransformer
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
+import os
 
 sbert_model = SentenceTransformer('all-MiniLM-L12-v2')
 df_resumes = pd.read_csv('../../PreProcessing/processed_data/Resume_proc_lemm.csv')
@@ -46,6 +47,21 @@ def jobResumeMatch():
         })
 
     return jsonify({"similarity": results})
+
+@app.route('/download-cv/<job_name>/<cv_id>')
+def download_cv(job_name, cv_id):
+    # Pulizia e normalizzazione base
+    #safe_job = job_name.replace('..', '').replace('/', '').replace('\\', '').replace(' ', '_')
+    #safe_id = cv_id.replace('..', '').replace('/', '').replace('\\', '')
+
+    # Costruzione del path
+    file_path = os.path.join('../../dataset/DataSetKaggle/data', job_name, f'{cv_id}.pdf')
+
+    # Verifica se esiste
+    if os.path.isfile(file_path):
+        return send_file(file_path, as_attachment=True)
+    else:
+        abort(404)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -9,11 +9,15 @@
 </head>
 <body>
     <header>
-        <p id="Title">Resume Classification</p>
+        <div class="toggle-switch">
+            <div id="toggle-indicator"></div>
+            <button id="btn-job" class="toggle-btn active">Job Description</button>
+            <button id="btn-resume" class="toggle-btn">Resume Classification</button>
+        </div>
     </header>
 
     <main>
-        <p id="subTitle">Welcome! Type your job ad to find the most qualified candidates</p>
+        <div id="subTitle">Welcome! Type your job ad to find the most qualified candidates</div>
         <div class="container" id="container">
             <form class="form" id="form">
                 <textarea placeholder="Type something..." class="input-text" id="textarea"></textarea>
@@ -21,6 +25,7 @@
                     ➤
                 </button>
             </form>
+            <input type="file" id="upload-button" class="upload-button" name="resume" accept=".pdf">
         </div>
     </main>
 </body>
