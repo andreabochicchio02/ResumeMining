@@ -3,9 +3,11 @@ from sentence_transformers import SentenceTransformer
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import os
+import PyPDF2
+from io import BytesIO
 
 sbert_model = SentenceTransformer('all-MiniLM-L12-v2')
-df_resumes = pd.read_csv('../../PreProcessing/processed_data/Resume_proc_lemm.csv')
+df_resumes = pd.read_csv('../../PreProcessingResumes/processed_data/Resume_proc_lemm.csv')
 resumes = df_resumes["Resume_str"].tolist()
 cat = df_resumes["Category"].astype("category")
 labels = cat.cat.codes
@@ -55,13 +57,37 @@ def download_cv(job_name, cv_id):
     #safe_id = cv_id.replace('..', '').replace('/', '').replace('\\', '')
 
     # Costruzione del path
-    file_path = os.path.join('../../dataset/DataSetKaggle/data', job_name, f'{cv_id}.pdf')
+    file_path = os.path.join('../../dataset/Resumes/PDF', job_name, f'{cv_id}.pdf')
 
     # Verifica se esiste
     if os.path.isfile(file_path):
         return send_file(file_path, as_attachment=True)
     else:
         abort(404)
+
+def extract_text_from_pdf(file):
+    pdf_reader = PyPDF2.PdfReader(file)
+    text = ''
+    for page_num in range(len(pdf_reader.pages)):
+        page = pdf_reader.pages[page_num]
+        text += page.extract_text()
+    return text
+
+@app.route('/resumeClassification', methods=['POST'])
+def job_resume_match():
+    if 'file' in request.files: 
+        file = request.files['file']
+        if file.filename.endswith('.pdf'):
+            file_stream = BytesIO(file.read())
+            extracted_text = extract_text_from_pdf(file_stream)
+            return jsonify({'text': extracted_text})
+        else:
+            return jsonify({'error': 'Only PDF files are allowed'}), 400
+    elif 'text' in request.json:
+        text = request.json['text']
+        return jsonify({'text': text})
+    else:
+        return jsonify({'error': 'Please provide either text or a PDF file'}), 400
 
 if __name__ == "__main__":
     app.run(debug=True)

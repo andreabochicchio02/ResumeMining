@@ -20,14 +20,17 @@ main {
 }
 
 #subTitle {
-    margin-top: 130px;
+    margin-top: 100px;
     color: black;
     font-size: x-large;
     width: 100%;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
+    height: auto;
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -39,12 +42,13 @@ main {
     background: white;
     transition:
         transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
-        width     0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+        width     0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* classe da aggiungere via JS */
 .container.move-down {
-    transform: translateY(calc(100vh/2 - 70px));
+    position: fixed;
+    bottom: 20px;
     width: 45%;
 }
 
@@ -59,7 +63,8 @@ main {
 .input-text {
     border: None;
     width: 95%;
-    max-height: 150px; /* altezza massima se vuoi */
+    height: auto;
+    max-height: 100px; /* altezza massima se vuoi */
     padding: 0rem 1rem 0rem 1rem;
     border-radius: 10px;
     font-size: 1rem;
@@ -182,6 +187,7 @@ header {
     overflow: hidden;
     width: 40%;
     height: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-btn {
@@ -255,3 +261,38 @@ header {
     position: relative;
     overflow: hidden;
 } 
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+#title-examples{
+    margin-top: 60px;
+}
+
+#examples {
+    display: flex;
+    justify-content: space-around;  /* Distanza tra i quadrati */
+    margin-top: 20px;  /* Distanza dal top del div */
+    width: 40%;
+}
+
+.square {
+    width: 100px;  /* Larghezza del quadrato */
+    height: 100px;  /* Altezza del quadrato */
+    border-radius: 20px;  /* Angoli stondati */
+    background-color: white;  /* Colore di sfondo */
+    color: black;  /* Colore del testo */
+    display: flex;
+    align-items: center;  /* Allinea verticalmente il testo */
+    justify-content: center;  /* Allinea orizzontalmente il testo */
+    text-align: center;
+    font-size: 1em;
+    cursor: pointer;  /* Cambia il cursore quando si passa sopra */
+    transition: background-color 0.3s;  /* Aggiunge un'animazione per il cambio di colore */
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.square:hover {
+    background-color: #36679B;  /* Cambia colore quando il mouse passa sopra */
+    color: white;
+}
