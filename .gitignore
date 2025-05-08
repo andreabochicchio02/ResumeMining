@@ -1,17 +1,9 @@
-# Ignore the .ipynb_checkpoints directory
-.ipynb_checkpoints/
-
-# Ignore the dataset directory
-dataset/
-
-# Ignore the processed_data directory
-processed_data/
-processed_data2/
-
-datasetModificato/
-
 __pycache__/
 
+.ipynb_checkpoints/
 
-# Dataset with new label
-NewDataset
+dataset/
+
+PreProcessingJobs/processed_data/
+
+PreProcessingResumes/processed_data/
