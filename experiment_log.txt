@@ -1,84 +1,18 @@
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.998, test=0.692
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.689, test=0.590
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=100, window=5, min_count=2, epochs=10) | Accuracy train=0.873, test=0.573
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=5, min_count=2, dm=False, epochs=10) | Accuracy train=0.751, test=0.577
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=5, min_count=2, dm=True, epochs=20) | Accuracy train=0.638, test=0.553
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=200, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.740, test=0.606
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.795, test=0.742
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=0.789, test=0.728
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | TFIDF(max_features=5000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.788, test=0.732
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.7, min_df=1) | Accuracy train=0.792, test=0.730
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | W2V(vector_size=100, window=5, min_count=2, epochs=10) | Accuracy train=0.612, test=0.493
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | W2V(vector_size=200, window=5, min_count=2, epochs=10) | Accuracy train=0.628, test=0.479
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | W2V(vector_size=100, window=10, min_count=1, epochs=20) | Accuracy train=0.649, test=0.493
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | W2V(vector_size=200, window=10, min_count=1, epochs=20) | Accuracy train=0.652, test=0.499
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | W2V(vector_size=250, window=15, min_count=1, epochs=30) | Accuracy train=0.668, test=0.515
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | W2V(vector_size=200, window=20, min_count=1, epochs=30) | Accuracy train=0.655, test=0.511
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | W2V(vector_size=250, window=20, min_count=1, epochs=30) | Accuracy train=0.672, test=0.521
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | W2V(vector_size=300, window=20, min_count=1, epochs=30) | Accuracy train=0.673, test=0.537
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | W2V(vector_size=300, window=10, min_count=1, epochs=30) | Accuracy train=0.665, test=0.515
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | W2V(vector_size=300, window=30, min_count=2, epochs=30) | Accuracy train=0.675, test=0.523
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | W2V(vector_size=300, window=20, min_count=2, epochs=40) | Accuracy train=0.673, test=0.507
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | D2V(vector_size=100, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.907, test=0.523
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | D2V(vector_size=200, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.957, test=0.525
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | D2V(vector_size=100, window=10, min_count=1, dm=False, epochs=20) | Accuracy train=0.909, test=0.535
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | D2V(vector_size=100, window=15, min_count=1, dm=False, epochs=10) | Accuracy train=0.783, test=0.535
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | D2V(vector_size=100, window=15, min_count=1, dm=False, epochs=5) | Accuracy train=0.689, test=0.523
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=7, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | SBERT() | Accuracy train=0.889, test=0.696
-SVC(clf__C=1, clf__coef0=1.0, clf__degree=2, clf__kernel=poly) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=1.000, test=0.678
-SVC(clf__C=1, clf__coef0=1.0, clf__degree=2, clf__kernel=poly) | TFIDF(max_features=5000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=1.000, test=0.672
-SVC(clf__C=1, clf__coef0=1.0, clf__degree=2, clf__kernel=poly) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.7, min_df=1) | Accuracy train=1.000, test=0.670
-SVC(clf__C=0.01, clf__kernel=linear) | W2V(vector_size=100, window=5, min_count=2, epochs=10) | Accuracy train=0.995, test=0.575
-SVC(clf__C=0.01, clf__kernel=linear) | W2V(vector_size=100, window=10, min_count=1, epochs=20) | Accuracy train=0.996, test=0.567
-SVC(clf__C=0.01, clf__kernel=linear) | W2V(vector_size=200, window=10, min_count=1, epochs=20) | Accuracy train=1.000, test=0.571
-SVC(clf__C=0.01, clf__kernel=linear) | W2V(vector_size=200, window=20, min_count=1, epochs=20) | Accuracy train=1.000, test=0.547
-SVC(clf__C=0.01, clf__kernel=linear) | W2V(vector_size=300, window=20, min_count=1, epochs=20) | Accuracy train=1.000, test=0.567
-SVC(clf__C=0.01, clf__kernel=linear) | W2V(vector_size=300, window=10, min_count=2, epochs=10) | Accuracy train=1.000, test=0.563
-SVC(clf__C=1, clf__kernel=linear) | D2V(vector_size=100, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.770, test=0.581
-SVC(clf__C=1, clf__kernel=linear) | D2V(vector_size=200, window=5, min_count=2, dm=False, epochs=20) | Accuracy train=0.838, test=0.600
-SVC(clf__C=1, clf__kernel=linear) | D2V(vector_size=100, window=10, min_count=2, dm=False, epochs=20) | Accuracy train=0.772, test=0.594
-SVC(clf__C=1, clf__kernel=linear) | D2V(vector_size=100, window=10, min_count=2, dm=False, epochs=10) | Accuracy train=0.681, test=0.588
-SVC(clf__C=1, clf__kernel=linear) | D2V(vector_size=100, window=10, min_count=2, dm=True, epochs=10) | Accuracy train=0.621, test=0.519
-SVC(clf__C=1, clf__kernel=linear) | SBERT() | Accuracy train=0.832, test=0.753
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=0.998, test=0.696
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | TFIDF(max_features=5000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.998, test=0.702
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.7, min_df=1) | Accuracy train=0.998, test=0.698
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | TFIDF(max_features=5000, ngram_range=(1, 3), max_df=0.8, min_df=3) | Accuracy train=0.997, test=0.698
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=100, window=5, min_count=2, epochs=10) | Accuracy train=0.879, test=0.573
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=100, window=10, min_count=1, epochs=20) | Accuracy train=0.888, test=0.586
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=200, window=10, min_count=1, epochs=20) | Accuracy train=0.973, test=0.563
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=200, window=20, min_count=1, epochs=10) | Accuracy train=0.952, test=0.563
-LogisticRegression(clf__C=0.1, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=300, window=20, min_count=1, epochs=10) | Accuracy train=1.000, test=0.592
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=300, window=10, min_count=2, epochs=10) | Accuracy train=0.989, test=0.592
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=50, window=10, min_count=3, epochs=10) | Accuracy train=0.742, test=0.525
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=50, window=5, min_count=1, epochs=10) | Accuracy train=0.739, test=0.531
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=50, window=5, min_count=2, epochs=10) | Accuracy train=0.747, test=0.533
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=50, window=5, min_count=2, epochs=20) | Accuracy train=0.755, test=0.559
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=50, window=5, min_count=2, epochs=30) | Accuracy train=0.763, test=0.547
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=100, window=5, min_count=2, epochs=40) | Accuracy train=0.901, test=0.588
-LogisticRegression(clf__C=0.01, clf__penalty=l2, clf__solver=lbfgs) | W2V(vector_size=50, window=5, min_count=2, epochs=40) | Accuracy train=0.761, test=0.539
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=5, min_count=1, dm=False, epochs=10) | Accuracy train=0.750, test=0.588
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=100, window=10, min_count=1, dm=False, epochs=20) | Accuracy train=0.688, test=0.598
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=200, window=20, min_count=1, dm=False, epochs=30) | Accuracy train=0.768, test=0.588
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=200, window=10, min_count=1, dm=True, epochs=30) | Accuracy train=0.683, test=0.533
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=300, window=20, min_count=1, dm=False, epochs=20) | Accuracy train=0.744, test=0.604
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=400, window=20, min_count=1, dm=False, epochs=20) | Accuracy train=0.951, test=0.614
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=400, window=50, min_count=1, dm=False, epochs=20) | Accuracy train=0.951, test=0.608
-LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=250, window=10, min_count=0, dm=False, epochs=20) | Accuracy train=0.938, test=0.610
-LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | SBERT() | Accuracy train=0.791, test=0.761
-ComplementNB(clf=ComplementNB(), clf__alpha=0.1, clf__fit_prior=True) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.793, test=0.654
-ComplementNB(clf=ComplementNB(), clf__alpha=0.1, clf__fit_prior=True) | TFIDF(max_features=5000, ngram_range=(1, 3), max_df=0.8, min_df=1) | Accuracy train=0.729, test=0.628
-ComplementNB(clf=ComplementNB(), clf__alpha=0.1, clf__fit_prior=True) | TFIDF(max_features=15000, ngram_range=(1, 6), max_df=0.9, min_df=2) | Accuracy train=0.822, test=0.652
-ComplementNB(clf=ComplementNB(), clf__alpha=0.1, clf__fit_prior=True) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.7, min_df=1) | Accuracy train=0.791, test=0.650
-
-
-
-NEW DATASET
-
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | D2V(vector_size=100, window=15, min_count=1, dm=False, epochs=5) | Accuracy train=0.562, test=0.497
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=8, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.740, test=0.666
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.757, test=0.670
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=5, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | W2V(vector_size=200, window=10, min_count=2, epochs=40) | Accuracy train=0.680, test=0.551
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | SBERT() | Accuracy train=0.928, test=0.722
-RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | TFIDF(max_features=10000, ngram_range=(1, 6), max_df=0.8, min_df=2) | Accuracy train=0.768, test=0.698
-RandomForestClassifier(clf__criterion=entropy, clf__max_depth=9, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | SBERT() | Accuracy train=0.931, test=0.724
+RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=0.809, test=0.712
+RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=0.797, test=0.722
+RandomForestClassifier(clf__criterion=gini, clf__max_depth=10, clf__max_features=sqrt, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=400) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=0.773, test=0.686
+RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | D2V(vector_size=200, window=10, min_count=2, dm=True, epochs=20) | Accuracy train=0.892, test=0.535
+RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | D2V(vector_size=200, window=10, min_count=2, dm=True, epochs=20) | Accuracy train=0.885, test=0.543
+RandomForestClassifier(clf__criterion=entropy, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | SBERT() | Accuracy train=0.935, test=0.724
+RandomForestClassifier(clf__criterion=gini, clf__max_depth=9, clf__max_features=log2, clf__min_samples_leaf=15, clf__min_samples_split=10, clf__n_estimators=700) | SBERT() | Accuracy train=0.906, test=0.738
+SVC(clf__C=1, clf__coef0=1.0, clf__degree=2, clf__kernel=poly) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=1.000, test=0.704
+SVC(clf__C=1, clf__kernel=linear) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=0.980, test=0.704
+SVC(clf__C=1, clf__coef0=0.1, clf__degree=2, clf__kernel=poly) | D2V(vector_size=200, window=10, min_count=2, dm=True, epochs=20) | Accuracy train=0.937, test=0.581
+SVC(clf__C=1, clf__coef0=0.1, clf__degree=3, clf__kernel=poly) | D2V(vector_size=200, window=10, min_count=2, dm=True, epochs=20) | Accuracy train=0.990, test=0.535
+SVC(clf__C=1, clf__coef0=0.1, clf__degree=3, clf__kernel=poly) | SBERT() | Accuracy train=0.984, test=0.769
+LogisticRegression(clf__C=10, clf__penalty=l2, clf__solver=lbfgs) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=1.000, test=0.724
+LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=200, window=10, min_count=2, dm=True, epochs=20) | Accuracy train=0.712, test=0.584
+LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=200, window=10, min_count=2, dm=True, epochs=20) | Accuracy train=0.715, test=0.586
+LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | SBERT() | Accuracy train=0.828, test=0.765
+ComplementNB(clf=ComplementNB(), clf__alpha=0.1, clf__fit_prior=True) | TFIDF(max_features=10000, ngram_range=(1, 3), max_df=0.8, min_df=2) | Accuracy train=0.796, test=0.674
+LogisticRegression(clf__C=1, clf__penalty=l2, clf__solver=lbfgs) | D2V(vector_size=200, window=10, min_count=2, dm=True, epochs=20) | Accuracy train=0.710, test=0.590
