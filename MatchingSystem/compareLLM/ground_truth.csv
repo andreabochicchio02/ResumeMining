@@ -1,0 +1,401 @@
+job_id,job_title,cv_id,cv_category,similarity_score,gemini_score
+3894997641,Network Infrastructure Engineer,24913648,INFORMATION-TECHNOLOGY,7,7
+3894997641,Network Infrastructure Engineer,63158213,INFORMATION-TECHNOLOGY,7,8
+3894997641,Network Infrastructure Engineer,15145575,INFORMATION-TECHNOLOGY,7,7
+3894997641,Network Infrastructure Engineer,20574232,CONSULTANT,7,7
+3894997641,Network Infrastructure Engineer,73030450,INFORMATION-TECHNOLOGY,7,8
+3894997641,Network Infrastructure Engineer,10704573,BUSINESS-DEVELOPMENT,3,2
+3894997641,Network Infrastructure Engineer,19786924,TEACHER,1,1
+3894997641,Network Infrastructure Engineer,28745844,HEALTHCARE,4,1
+3894997641,Network Infrastructure Engineer,58428843,SALES,3,1
+3894997641,Network Infrastructure Engineer,25923361,TEACHER,2,1
+3901936723,Talent Coordinator,31926950,HR,7,8
+3901936723,Talent Coordinator,14517953,CONSULTANT,6,4
+3901936723,Talent Coordinator,10984392,CONSULTANT,6,4
+3901936723,Talent Coordinator,15119529,CONSULTANT,6,4
+3901936723,Talent Coordinator,65352424,HR,6,7
+3901936723,Talent Coordinator,90867631,INFORMATION-TECHNOLOGY,4,2
+3901936723,Talent Coordinator,96547039,TEACHER,3,2
+3901936723,Talent Coordinator,20966771,PUBLIC-RELATIONS,4,5
+3901936723,Talent Coordinator,28109594,DIGITAL-MEDIA,5,5
+3901936723,Talent Coordinator,15363277,ACCOUNTANT,3,2
+3884431593,Creative Content Developer (323565),79432080,ARTS,6,2
+3884431593,Creative Content Developer (323565),18979238,DESIGNER,6,2
+3884431593,Creative Content Developer (323565),24679149,DIGITAL-MEDIA,6,3
+3884431593,Creative Content Developer (323565),15425154,DESIGNER,6,4
+3884431593,Creative Content Developer (323565),62312955,DESIGNER,5,2
+3884431593,Creative Content Developer (323565),23497307,ENGINEERING,3,2
+3884431593,Creative Content Developer (323565),15471999,DESIGNER,4,1
+3884431593,Creative Content Developer (323565),97449528,AUTOMOBILE,4,2
+3884431593,Creative Content Developer (323565),62184086,TEACHER,3,1
+3884431593,Creative Content Developer (323565),18645964,BANKING,4,2
+3905295685,Retail Store Manager,11842348,BANKING,7,4
+3905295685,Retail Store Manager,18480859,CHEF,7,5
+3905295685,Retail Store Manager,29772450,CHEF,7,4
+3905295685,Retail Store Manager,19268120,CHEF,7,3
+3905295685,Retail Store Manager,11444536,CHEF,7,5
+3905295685,Retail Store Manager,74512244,FINANCE,4,2
+3905295685,Retail Store Manager,10568183,HEALTHCARE,2,2
+3905295685,Retail Store Manager,29648950,SALES,5,5
+3905295685,Retail Store Manager,13367322,FITNESS,4,3
+3905295685,Retail Store Manager,39166680,DIGITAL-MEDIA,4,2
+3902759024,Seasonal Sales Associate,25213006,CONSULTANT,7,7
+3902759024,Seasonal Sales Associate,32433431,CONSULTANT,7,6
+3902759024,Seasonal Sales Associate,14517953,CONSULTANT,7,2
+3902759024,Seasonal Sales Associate,13215696,BPO,7,7
+3902759024,Seasonal Sales Associate,69181350,CONSULTANT,7,2
+3902759024,Seasonal Sales Associate,29573698,SALES,4,7
+3902759024,Seasonal Sales Associate,30713796,BANKING,4,5
+3902759024,Seasonal Sales Associate,98300955,HEALTHCARE,3,1
+3902759024,Seasonal Sales Associate,19364677,CONSTRUCTION,3,1
+3902759024,Seasonal Sales Associate,29510501,TEACHER,3,2
+3895205640,"VP, Business Development ",27375577,BUSINESS-DEVELOPMENT,7,7
+3895205640,"VP, Business Development ",15233524,BUSINESS-DEVELOPMENT,7,7
+3895205640,"VP, Business Development ",38688388,BUSINESS-DEVELOPMENT,7,7
+3895205640,"VP, Business Development ",24647386,BUSINESS-DEVELOPMENT,6,7
+3895205640,"VP, Business Development ",59696315,BUSINESS-DEVELOPMENT,6,7
+3895205640,"VP, Business Development ",24397882,FINANCE,3,3
+3895205640,"VP, Business Development ",47410104,FINANCE,5,4
+3895205640,"VP, Business Development ",64468610,ENGINEERING,3,2
+3895205640,"VP, Business Development ",18072085,ACCOUNTANT,3,2
+3895205640,"VP, Business Development ",45656814,FITNESS,2,2
+3906224875,Teacher Language Arts - Grade 6,29639533,TEACHER,7,8
+3906224875,Teacher Language Arts - Grade 6,21773106,TEACHER,6,8
+3906224875,Teacher Language Arts - Grade 6,11943065,TEACHER,6,7
+3906224875,Teacher Language Arts - Grade 6,29510501,TEACHER,6,7
+3906224875,Teacher Language Arts - Grade 6,27126818,TEACHER,6,8
+3906224875,Teacher Language Arts - Grade 6,57364820,CONSULTANT,3,1
+3906224875,Teacher Language Arts - Grade 6,28635795,ADVOCATE,3,2
+3906224875,Teacher Language Arts - Grade 6,28916894,BUSINESS-DEVELOPMENT,3,2
+3906224875,Teacher Language Arts - Grade 6,24550866,HEALTHCARE,3,2
+3906224875,Teacher Language Arts - Grade 6,15821633,ACCOUNTANT,3,1
+3902760109,Data Scientist,18448085,INFORMATION-TECHNOLOGY,7,8
+3902760109,Data Scientist,12011623,ENGINEERING,6,8
+3902760109,Data Scientist,20237244,INFORMATION-TECHNOLOGY,6,3
+3902760109,Data Scientist,12351749,SALES,6,7
+3902760109,Data Scientist,20001721,INFORMATION-TECHNOLOGY,6,5
+3902760109,Data Scientist,17562754,DIGITAL-MEDIA,4,2
+3902760109,Data Scientist,25935030,ACCOUNTANT,3,2
+3902760109,Data Scientist,39675895,FINANCE,3,2
+3902760109,Data Scientist,25930778,ENGINEERING,4,1
+3902760109,Data Scientist,18753367,ENGINEERING,3,2
+3887881431,Program Coordinator for Baltimore Youth Film Arts,28711616,ARTS,6,7
+3887881431,Program Coordinator for Baltimore Youth Film Arts,39470264,TEACHER,6,5
+3887881431,Program Coordinator for Baltimore Youth Film Arts,15306049,ARTS,6,4
+3887881431,Program Coordinator for Baltimore Youth Film Arts,24953921,DIGITAL-MEDIA,6,5
+3887881431,Program Coordinator for Baltimore Youth Film Arts,19374660,BANKING,6,5
+3887881431,Program Coordinator for Baltimore Youth Film Arts,90066849,DESIGNER,3,1
+3887881431,Program Coordinator for Baltimore Youth Film Arts,23398843,TEACHER,4,3
+3887881431,Program Coordinator for Baltimore Youth Film Arts,24491862,PUBLIC-RELATIONS,4,5
+3887881431,Program Coordinator for Baltimore Youth Film Arts,31225895,AVIATION,3,4
+3887881431,Program Coordinator for Baltimore Youth Film Arts,92985983,CHEF,3,1
+3887582356,Patient Safety Attendant,12938200,HEALTHCARE,5,3
+3887582356,Patient Safety Attendant,16356151,HEALTHCARE,5,2
+3887582356,Patient Safety Attendant,28423028,HEALTHCARE,5,1
+3887582356,Patient Safety Attendant,45077654,HEALTHCARE,5,2
+3887582356,Patient Safety Attendant,22990761,AVIATION,5,7
+3887582356,Patient Safety Attendant,29087505,CONSTRUCTION,1,2
+3887582356,Patient Safety Attendant,38108845,FITNESS,2,2
+3887582356,Patient Safety Attendant,22351830,CONSULTANT,1,1
+3887582356,Patient Safety Attendant,94492380,DIGITAL-MEDIA,1,1
+3887582356,Patient Safety Attendant,20082776,ACCOUNTANT,2,1
+3889286051,Term- Prop Technician (65404BR),18885767,ARTS,6,3
+3889286051,Term- Prop Technician (65404BR),28325193,ARTS,5,4
+3889286051,Term- Prop Technician (65404BR),15306049,ARTS,5,4
+3889286051,Term- Prop Technician (65404BR),27024099,BUSINESS-DEVELOPMENT,5,4
+3889286051,Term- Prop Technician (65404BR),14150896,DIGITAL-MEDIA,5,5
+3889286051,Term- Prop Technician (65404BR),27000192,PUBLIC-RELATIONS,3,1
+3889286051,Term- Prop Technician (65404BR),74512244,FINANCE,2,2
+3889286051,Term- Prop Technician (65404BR),74849878,FINANCE,2,2
+3889286051,Term- Prop Technician (65404BR),34319869,DIGITAL-MEDIA,3,3
+3889286051,Term- Prop Technician (65404BR),27847081,HR,2,2
+3894586791,Distribution Journeyman Lineman - Valencia,25719936,AVIATION,6,2
+3894586791,Distribution Journeyman Lineman - Valencia,10712803,ENGINEERING,6,2
+3894586791,Distribution Journeyman Lineman - Valencia,12748557,ENGINEERING,6,1
+3894586791,Distribution Journeyman Lineman - Valencia,86828820,ENGINEERING,6,1
+3894586791,Distribution Journeyman Lineman - Valencia,55953734,ENGINEERING,5,2
+3894586791,Distribution Journeyman Lineman - Valencia,58879993,HEALTHCARE,4,1
+3894586791,Distribution Journeyman Lineman - Valencia,14849103,CONSTRUCTION,4,1
+3894586791,Distribution Journeyman Lineman - Valencia,26695839,HEALTHCARE,4,1
+3894586791,Distribution Journeyman Lineman - Valencia,49937469,HR,4,1
+3894586791,Distribution Journeyman Lineman - Valencia,79536879,HEALTHCARE,3,1
+3902745676,Team Lead/Charge Nurse - Acute Medicine,31395710,HEALTHCARE,5,7
+3902745676,Team Lead/Charge Nurse - Acute Medicine,25834360,HEALTHCARE,5,7
+3902745676,Team Lead/Charge Nurse - Acute Medicine,14062078,HEALTHCARE,5,9
+3902745676,Team Lead/Charge Nurse - Acute Medicine,16356151,HEALTHCARE,5,5
+3902745676,Team Lead/Charge Nurse - Acute Medicine,37640804,HEALTHCARE,5,3
+3902745676,Team Lead/Charge Nurse - Acute Medicine,19738730,BUSINESS-DEVELOPMENT,3,1
+3902745676,Team Lead/Charge Nurse - Acute Medicine,85973397,CONSULTANT,3,1
+3902745676,Team Lead/Charge Nurse - Acute Medicine,24967652,FINANCE,1,1
+3902745676,Team Lead/Charge Nurse - Acute Medicine,17880988,FINANCE,3,1
+3902745676,Team Lead/Charge Nurse - Acute Medicine,27295996,INFORMATION-TECHNOLOGY,2,1
+3899538965,Scheduler ,45475027,CONSTRUCTION,7,7
+3899538965,Scheduler ,26091595,CONSTRUCTION,7,4
+3899538965,Scheduler ,78114950,CONSTRUCTION,7,6
+3899538965,Scheduler ,24361598,CONSTRUCTION,7,6
+3899538965,Scheduler ,25656981,CONSTRUCTION,7,7
+3899538965,Scheduler ,40883703,BUSINESS-DEVELOPMENT,3,1
+3899538965,Scheduler ,15941675,ENGINEERING,5,2
+3899538965,Scheduler ,17655479,BPO,4,2
+3899538965,Scheduler ,39875803,BUSINESS-DEVELOPMENT,3,2
+3899538965,Scheduler ,12938389,FITNESS,4,2
+3888027804,Intervention Specialist,15265464,TEACHER,6,7
+3888027804,Intervention Specialist,21611212,TEACHER,6,6
+3888027804,Intervention Specialist,20626794,TEACHER,6,4
+3888027804,Intervention Specialist,54934269,HEALTHCARE,5,5
+3888027804,Intervention Specialist,27531694,TEACHER,5,7
+3888027804,Intervention Specialist,22890839,ENGINEERING,3,1
+3888027804,Intervention Specialist,10909673,BANKING,2,1
+3888027804,Intervention Specialist,24001783,AGRICULTURE,3,1
+3888027804,Intervention Specialist,30127072,BANKING,3,1
+3888027804,Intervention Specialist,18242317,AGRICULTURE,3,1
+3901378172,Compliance Officer,89049979,ADVOCATE,7,8
+3901378172,Compliance Officer,26013403,FINANCE,7,7
+3901378172,Compliance Officer,95519832,BANKING,7,3
+3901378172,Compliance Officer,77156708,BANKING,7,6
+3901378172,Compliance Officer,25200253,BANKING,7,6
+3901378172,Compliance Officer,81217013,FINANCE,5,2
+3901378172,Compliance Officer,11266906,BANKING,4,2
+3901378172,Compliance Officer,43685045,ACCOUNTANT,6,3
+3901378172,Compliance Officer,30862904,HR,4,3
+3901378172,Compliance Officer,24833063,FINANCE,6,3
+3901961037,Finishing Department,19124258,ENGINEERING,6,1
+3901961037,Finishing Department,94137171,ENGINEERING,6,1
+3901961037,Finishing Department,19147947,SALES,6,3
+3901961037,Finishing Department,14455622,AVIATION,6,1
+3901961037,Finishing Department,27936502,BUSINESS-DEVELOPMENT,5,1
+3901961037,Finishing Department,18227306,CONSULTANT,4,1
+3901961037,Finishing Department,12085736,DIGITAL-MEDIA,3,1
+3901961037,Finishing Department,18106533,HR,3,1
+3901961037,Finishing Department,14698557,APPAREL,3,2
+3901961037,Finishing Department,38896303,CONSULTANT,4,1
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",24592627,CONSULTANT,5,4
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",14107571,FITNESS,5,7
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",26231609,FINANCE,4,2
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",41950126,BANKING,4,7
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",91564103,ACCOUNTANT,4,3
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",12333703,HEALTHCARE,3,2
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",54246169,AGRICULTURE,2,1
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",19724031,HEALTHCARE,1,2
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",29061628,CONSTRUCTION,3,2
+3894291099,"Anti-Money Laundering (AML) Sr. Investigator III, Transaction Monitoring Operations Team (TMO)",30128072,ADVOCATE,3,2
+3901350317,Communications Specialist,31929166,DIGITAL-MEDIA,6,7
+3901350317,Communications Specialist,25001005,PUBLIC-RELATIONS,6,8
+3901350317,Communications Specialist,85973397,CONSULTANT,6,8
+3901350317,Communications Specialist,63670997,CONSULTANT,6,8
+3901350317,Communications Specialist,23631724,PUBLIC-RELATIONS,6,9
+3901350317,Communications Specialist,17658471,TEACHER,3,3
+3901350317,Communications Specialist,49486820,HEALTHCARE,4,2
+3901350317,Communications Specialist,18365791,ACCOUNTANT,2,2
+3901350317,Communications Specialist,14248724,HEALTHCARE,3,1
+3901350317,Communications Specialist,12171093,ADVOCATE,4,3
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",14449423,ACCOUNTANT,7,7
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",50222417,ACCOUNTANT,7,8
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",39308779,CONSULTANT,7,2
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",26975573,ACCOUNTANT,7,7
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",14470533,ACCOUNTANT,6,6
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",11890896,ENGINEERING,3,2
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",26167298,CONSULTANT,4,1
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",14346702,CONSULTANT,3,1
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",26579709,BANKING,5,2
+3902737855,"Audit Staff Accountant, Entry level - 2025 (Nashville, TN)",23009962,CONSULTANT,4,1
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,23929500,SALES,4,7
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,18932512,BPO,4,7
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,73157997,BUSINESS-DEVELOPMENT,4,6
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,15535408,APPAREL,4,6
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,29647215,CONSULTANT,4,1
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,32441790,PUBLIC-RELATIONS,2,2
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,22492537,ACCOUNTANT,3,2
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,26819872,AVIATION,2,3
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,69532425,TEACHER,1,2
+3905259011,Call Center - Inbound Sales Representative at eClerx Fayetteville,25462793,ACCOUNTANT,1,1
+3900953537,Janitor,12059610,APPAREL,5,7
+3900953537,Janitor,32265203,CONSTRUCTION,5,7
+3900953537,Janitor,14508237,HEALTHCARE,5,4
+3900953537,Janitor,26958533,ENGINEERING,5,4
+3900953537,Janitor,27835351,CONSTRUCTION,5,6
+3900953537,Janitor,14879257,TEACHER,2,1
+3900953537,Janitor,68460556,INFORMATION-TECHNOLOGY,2,1
+3900953537,Janitor,32140087,SALES,4,1
+3900953537,Janitor,14849103,CONSTRUCTION,2,1
+3900953537,Janitor,78016758,CONSULTANT,3,1
+3884830401,Maintenance Technician,92283635,AVIATION,6,8
+3884830401,Maintenance Technician,10219099,ENGINEERING,6,8
+3884830401,Maintenance Technician,11959428,AVIATION,6,6
+3884830401,Maintenance Technician,56025640,ENGINEERING,6,7
+3884830401,Maintenance Technician,39855211,ENGINEERING,6,7
+3884830401,Maintenance Technician,24967652,FINANCE,1,2
+3884830401,Maintenance Technician,15553584,BANKING,2,1
+3884830401,Maintenance Technician,38847011,ACCOUNTANT,3,1
+3884830401,Maintenance Technician,37360517,SALES,3,2
+3884830401,Maintenance Technician,18460045,DESIGNER,2,1
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,19532392,HEALTHCARE,6,4
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,16911115,ENGINEERING,6,1
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,91478356,HEALTHCARE,6,1
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,36102323,AGRICULTURE,5,2
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,38115035,HEALTHCARE,5,1
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,54232810,AVIATION,3,2
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,18569929,ACCOUNTANT,2,1
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,45987048,TEACHER,3,1
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,12780508,ACCOUNTANT,3,1
+3905249340,Medical Laboratory Scientist (MT/MLT) (ASCP) - Microbiology - 10K Sign on bonus,13385306,INFORMATION-TECHNOLOGY,3,1
+3905667655,Deputy Sheriff Cadet - Unclassified,16270906,ACCOUNTANT,4,1
+3905667655,Deputy Sheriff Cadet - Unclassified,15941675,ENGINEERING,4,1
+3905667655,Deputy Sheriff Cadet - Unclassified,16172429,BANKING,3,1
+3905667655,Deputy Sheriff Cadet - Unclassified,34544955,CONSTRUCTION,3,1
+3905667655,Deputy Sheriff Cadet - Unclassified,12022566,ENGINEERING,3,1
+3905667655,Deputy Sheriff Cadet - Unclassified,21238396,FITNESS,1,2
+3905667655,Deputy Sheriff Cadet - Unclassified,23522150,BPO,2,1
+3905667655,Deputy Sheriff Cadet - Unclassified,27529455,DESIGNER,2,1
+3905667655,Deputy Sheriff Cadet - Unclassified,18079050,CONSULTANT,2,1
+3905667655,Deputy Sheriff Cadet - Unclassified,13998435,DESIGNER,1,1
+3901344663,Salesforce Consultant,12938389,FITNESS,6,3
+3901344663,Salesforce Consultant,36379931,PUBLIC-RELATIONS,6,3
+3901344663,Salesforce Consultant,23814777,HEALTHCARE,6,2
+3901344663,Salesforce Consultant,11957080,INFORMATION-TECHNOLOGY,6,2
+3901344663,Salesforce Consultant,28630325,ENGINEERING,6,2
+3901344663,Salesforce Consultant,28772892,TEACHER,4,2
+3901344663,Salesforce Consultant,3547447,BANKING,4,2
+3901344663,Salesforce Consultant,22855060,FITNESS,4,2
+3901344663,Salesforce Consultant,31162167,PUBLIC-RELATIONS,4,2
+3901344663,Salesforce Consultant,29483501,CONSTRUCTION,5,1
+3900944020,Maintenance - Ammonia Specialist,11444536,CHEF,4,2
+3900944020,Maintenance - Ammonia Specialist,91072502,CHEF,4,1
+3900944020,Maintenance - Ammonia Specialist,29772450,CHEF,4,1
+3900944020,Maintenance - Ammonia Specialist,17686472,ENGINEERING,4,2
+3900944020,Maintenance - Ammonia Specialist,11209758,BUSINESS-DEVELOPMENT,4,1
+3900944020,Maintenance - Ammonia Specialist,21568833,CONSULTANT,2,1
+3900944020,Maintenance - Ammonia Specialist,22391901,ADVOCATE,2,1
+3900944020,Maintenance - Ammonia Specialist,23807940,CHEF,4,1
+3900944020,Maintenance - Ammonia Specialist,26695839,HEALTHCARE,2,1
+3900944020,Maintenance - Ammonia Specialist,21134923,AGRICULTURE,2,1
+3902343726,CA Sales Manager,11842274,SALES,4,3
+3902343726,CA Sales Manager,25162378,BANKING,4,3
+3902343726,CA Sales Manager,18905648,DIGITAL-MEDIA,3,3
+3902343726,CA Sales Manager,33964275,CHEF,3,2
+3902343726,CA Sales Manager,11088337,BUSINESS-DEVELOPMENT,3,5
+3902343726,CA Sales Manager,28126340,INFORMATION-TECHNOLOGY,0,1
+3902343726,CA Sales Manager,12839152,CONSTRUCTION,1,1
+3902343726,CA Sales Manager,94492380,DIGITAL-MEDIA,2,1
+3902343726,CA Sales Manager,12613221,HEALTHCARE,1,1
+3902343726,CA Sales Manager,27726066,CONSULTANT,1,1
+3903888834,"Manager, Care Coordination (IN Medicaid)",52684666,FITNESS,6,7
+3903888834,"Manager, Care Coordination (IN Medicaid)",10816645,FITNESS,6,3
+3903888834,"Manager, Care Coordination (IN Medicaid)",28423028,HEALTHCARE,6,7
+3903888834,"Manager, Care Coordination (IN Medicaid)",16356151,HEALTHCARE,6,6
+3903888834,"Manager, Care Coordination (IN Medicaid)",26456474,HEALTHCARE,6,4
+3903888834,"Manager, Care Coordination (IN Medicaid)",70528646,SALES,3,3
+3903888834,"Manager, Care Coordination (IN Medicaid)",15680735,HEALTHCARE,4,4
+3903888834,"Manager, Care Coordination (IN Medicaid)",39674178,ACCOUNTANT,3,2
+3903888834,"Manager, Care Coordination (IN Medicaid)",25142074,APPAREL,3,1
+3903888834,"Manager, Care Coordination (IN Medicaid)",34544955,CONSTRUCTION,2,1
+3904393550,Housekeeping Supervisor,16852973,HR,6,3
+3904393550,Housekeeping Supervisor,11835339,CONSULTANT,6,2
+3904393550,Housekeeping Supervisor,24905947,BPO,6,2
+3904393550,Housekeeping Supervisor,19156751,SALES,6,4
+3904393550,Housekeeping Supervisor,35579812,HEALTHCARE,5,2
+3904393550,Housekeeping Supervisor,22506245,DESIGNER,2,1
+3904393550,Housekeeping Supervisor,13807808,DESIGNER,3,1
+3904393550,Housekeeping Supervisor,29797594,TEACHER,2,1
+3904393550,Housekeeping Supervisor,26768723,INFORMATION-TECHNOLOGY,3,1
+3904393550,Housekeeping Supervisor,13836471,INFORMATION-TECHNOLOGY,3,1
+3903814937,"Welder, 2nd Shift",19147947,SALES,5,3
+3903814937,"Welder, 2nd Shift",38220146,ENGINEERING,4,2
+3903814937,"Welder, 2nd Shift",11360471,CONSTRUCTION,4,5
+3903814937,"Welder, 2nd Shift",90280583,ENGINEERING,4,1
+3903814937,"Welder, 2nd Shift",27936502,BUSINESS-DEVELOPMENT,4,1
+3903814937,"Welder, 2nd Shift",46514339,APPAREL,2,1
+3903814937,"Welder, 2nd Shift",11121498,CHEF,2,1
+3903814937,"Welder, 2nd Shift",78298706,CONSTRUCTION,2,4
+3903814937,"Welder, 2nd Shift",29087505,CONSTRUCTION,2,2
+3903814937,"Welder, 2nd Shift",39569771,BANKING,2,1
+3886465131,Assistant Facility Manager,12695799,BPO,5,7
+3886465131,Assistant Facility Manager,27090089,HEALTHCARE,5,5
+3886465131,Assistant Facility Manager,28724469,FINANCE,5,7
+3886465131,Assistant Facility Manager,38565119,DESIGNER,4,6
+3886465131,Assistant Facility Manager,14611516,PUBLIC-RELATIONS,4,6
+3886465131,Assistant Facility Manager,24410405,ADVOCATE,3,5
+3886465131,Assistant Facility Manager,21283733,DESIGNER,3,3
+3886465131,Assistant Facility Manager,38535335,ENGINEERING,3,5
+3886465131,Assistant Facility Manager,29329075,PUBLIC-RELATIONS,3,4
+3886465131,Assistant Facility Manager,31813535,BUSINESS-DEVELOPMENT,4,4
+3902833546,Plant Manager,94137171,ENGINEERING,6,8
+3902833546,Plant Manager,78357954,SALES,6,2
+3902833546,Plant Manager,20176584,CONSULTANT,6,8
+3902833546,Plant Manager,23933031,BPO,6,1
+3902833546,Plant Manager,99714410,CONSULTANT,6,8
+3902833546,Plant Manager,29075857,INFORMATION-TECHNOLOGY,4,2
+3902833546,Plant Manager,25001005,PUBLIC-RELATIONS,3,1
+3902833546,Plant Manager,13072354,ADVOCATE,2,1
+3902833546,Plant Manager,22323967,HR,4,2
+3902833546,Plant Manager,28078163,ENGINEERING,3,1
+3889244679,Sales Manager,96493528,BANKING,6,6
+3889244679,Sales Manager,11490673,FINANCE,6,3
+3889244679,Sales Manager,35483925,BUSINESS-DEVELOPMENT,6,6
+3889244679,Sales Manager,20850529,BUSINESS-DEVELOPMENT,6,6
+3889244679,Sales Manager,47410104,FINANCE,6,2
+3889244679,Sales Manager,31547476,CHEF,3,2
+3889244679,Sales Manager,40018190,INFORMATION-TECHNOLOGY,3,1
+3889244679,Sales Manager,17132168,DIGITAL-MEDIA,5,5
+3889244679,Sales Manager,23510685,HR,4,2
+3889244679,Sales Manager,86828820,ENGINEERING,4,1
+3901961247,Maintenance Manager,92283635,AVIATION,7,5
+3901961247,Maintenance Manager,12333703,HEALTHCARE,6,7
+3901961247,Maintenance Manager,96029688,ENGINEERING,6,8
+3901961247,Maintenance Manager,11959428,AVIATION,6,3
+3901961247,Maintenance Manager,24322804,ENGINEERING,6,8
+3901961247,Maintenance Manager,69243180,BANKING,3,1
+3901961247,Maintenance Manager,20345168,ACCOUNTANT,3,1
+3901961247,Maintenance Manager,38457612,CONSULTANT,4,1
+3901961247,Maintenance Manager,29639533,TEACHER,2,1
+3901961247,Maintenance Manager,23810469,DIGITAL-MEDIA,4,1
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,26456474,HEALTHCARE,6,1
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,45077654,HEALTHCARE,6,2
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,23814777,HEALTHCARE,6,3
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,19090468,HEALTHCARE,6,3
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,17847636,HEALTHCARE,6,2
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,49777184,CONSULTANT,4,2
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,36805025,BUSINESS-DEVELOPMENT,3,2
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,37660306,DESIGNER,2,1
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,28631840,ENGINEERING,4,4
+3903845619,Cyber Security Client Service Technician 2 - IL: Chicago / Chicagoland,36024962,ACCOUNTANT,3,1
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,25834360,HEALTHCARE,6,7
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,10953078,HEALTHCARE,6,8
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,14062078,HEALTHCARE,6,8
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,69005326,TEACHER,5,3
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,24061629,HEALTHCARE,5,3
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,33176873,HR,2,1
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,18311419,BUSINESS-DEVELOPMENT,3,1
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,24294778,ACCOUNTANT,3,1
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,35325329,INFORMATION-TECHNOLOGY,2,1
+3905394158,Clinical RN BU – Operating Room – Sharp Grossmont Hospital - 10 Hour Night Shift – Full Time - Eligible for up to $25K in New Hire Incentive,10724818,SALES,3,1
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",14667659,HEALTHCARE,4,6
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",10876132,FINANCE,4,4
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",24592627,CONSULTANT,4,2
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",14708590,HEALTHCARE,4,4
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",31169070,CONSULTANT,4,4
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",30542184,ENGINEERING,2,2
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",25656981,CONSTRUCTION,1,3
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",49119887,PUBLIC-RELATIONS,2,2
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",13343786,HR,2,2
+3898158925,"Insurance Sales Manager - Houston, Commercial Insurance",18198627,DESIGNER,1,2
+3902923282,Marketing Specialist,31220062,PUBLIC-RELATIONS,7,8
+3902923282,Marketing Specialist,25413261,PUBLIC-RELATIONS,7,7
+3902923282,Marketing Specialist,39608848,BUSINESS-DEVELOPMENT,7,7
+3902923282,Marketing Specialist,49119887,PUBLIC-RELATIONS,7,7
+3902923282,Marketing Specialist,67501448,BUSINESS-DEVELOPMENT,7,7
+3902923282,Marketing Specialist,23427369,HEALTHCARE,4,2
+3902923282,Marketing Specialist,71499299,FINANCE,4,2
+3902923282,Marketing Specialist,23438112,ACCOUNTANT,4,1
+3902923282,Marketing Specialist,98389424,INFORMATION-TECHNOLOGY,3,2
+3902923282,Marketing Specialist,94230796,PUBLIC-RELATIONS,2,3
+3906258251,MitraClip Specialist I - 2nd Shift,34962725,HEALTHCARE,4,4
+3906258251,MitraClip Specialist I - 2nd Shift,25974844,HEALTHCARE,4,3
+3906258251,MitraClip Specialist I - 2nd Shift,35422305,HEALTHCARE,4,1
+3906258251,MitraClip Specialist I - 2nd Shift,18129173,HEALTHCARE,4,3
+3906258251,MitraClip Specialist I - 2nd Shift,48037995,HEALTHCARE,4,2
+3906258251,MitraClip Specialist I - 2nd Shift,25452321,CHEF,2,4
+3906258251,MitraClip Specialist I - 2nd Shift,89197180,BUSINESS-DEVELOPMENT,2,1
+3906258251,MitraClip Specialist I - 2nd Shift,26942552,SALES,2,2
+3906258251,MitraClip Specialist I - 2nd Shift,15727656,ADVOCATE,2,2
+3906258251,MitraClip Specialist I - 2nd Shift,15471999,DESIGNER,1,4
