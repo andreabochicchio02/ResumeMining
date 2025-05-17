@@ -5,14 +5,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 import os
 import PyPDF2
 from io import BytesIO
+import joblib
+
+RF_Model_loaded = joblib.load('../../Models/random_forest_best_model.joblib')
+tfidf_vect_loaded = joblib.load('../../Models/tfidf_vectorizer.joblib')
 
 sbert_model = SentenceTransformer('all-MiniLM-L12-v2')
-df_resumes = pd.read_csv('../../PreProcessingResumes/processed_data/Resume_proc_lemm.csv')
-resumes = df_resumes["Resume_str"].tolist()
-cat = df_resumes["Category"].astype("category")
-labels = cat.cat.codes
-category_names = list(cat.cat.categories)
-resumes_embed = sbert_model.encode(df_resumes['Resume_str'], show_progress_bar=True)
+df_resumes = pd.read_csv('../../PreProcessingResumes/processed_data/Resumes.csv')
+
+resumes_embed = joblib.load('../../Models/resumes_embeddings.joblib')
 
 app = Flask(
     __name__,
@@ -22,7 +23,6 @@ app = Flask(
 
 @app.route("/")
 def index():
-    # renderizza test/templates/index.html
     return render_template("index.html")
 
 @app.route("/jobResumeMatch", methods=["POST"])
@@ -37,15 +37,11 @@ def jobResumeMatch():
 
     results = []
     for rank, cv_idx in enumerate(top_matches, start=1):
-        cv_real_id   = df_resumes.iloc[cv_idx]['ID']
-        cv_category  = df_resumes.iloc[cv_idx]['Category']
-        score        = similarity_vector[cv_idx]
-        
         results.append({
-            'cv_id':            int(cv_real_id),
-            'cv_category':      cv_category,
-            'similarity_score': float(score),
-            'rank':             rank
+            'cv_id':        int(df_resumes.iloc[cv_idx]['ID']),
+            'category':     df_resumes.iloc[cv_idx]['Category'],
+            'value':        float(similarity_vector[cv_idx]),
+            'rank':         rank
         })
 
     return jsonify({"similarity": results})
@@ -74,20 +70,39 @@ def extract_text_from_pdf(file):
     return text
 
 @app.route('/resumeClassification', methods=['POST'])
-def job_resume_match():
+def resume_classification():
+    text = ''
     if 'file' in request.files: 
         file = request.files['file']
         if file.filename.endswith('.pdf'):
             file_stream = BytesIO(file.read())
-            extracted_text = extract_text_from_pdf(file_stream)
-            return jsonify({'text': extracted_text})
+            text = extract_text_from_pdf(file_stream)
         else:
             return jsonify({'error': 'Only PDF files are allowed'}), 400
     elif 'text' in request.json:
         text = request.json['text']
-        return jsonify({'text': text})
-    else:
-        return jsonify({'error': 'Please provide either text or a PDF file'}), 400
+    
+    features = tfidf_vect_loaded.transform([text])
+
+    probabilities = RF_Model_loaded.predict_proba(features)[0]
+
+    class_probs = list(zip(RF_Model_loaded.classes_, probabilities))
+
+    class_probs_sorted = sorted(class_probs, key=lambda x: x[1], reverse=True)
+
+    top_3 = class_probs_sorted[:3]
+
+    # Arrotonda le probabilità e costruisci la risposta
+    top_predictions = []
+
+    for i, (cat, prob) in enumerate(top_3):
+        top_predictions.append({
+            'rank':         i+1,
+            'category':     cat,
+            'value':        prob
+        })
+
+    return jsonify({"top_predictions": top_predictions})
 
 if __name__ == "__main__":
     app.run(debug=True)

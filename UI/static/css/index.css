@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    /*font-family: 'Times New Roman', Times, serif;*/
+    font-family: "Montserrat", sans-serif;
+    font-size: 95%;
 }
 
 #Title {
@@ -48,7 +50,7 @@ main {
 /* classe da aggiungere via JS */
 .container.move-down {
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     width: 45%;
 }
 
@@ -272,11 +274,11 @@ header {
     display: flex;
     justify-content: space-around;  /* Distanza tra i quadrati */
     margin-top: 20px;  /* Distanza dal top del div */
-    width: 40%;
+    width: 50%;
 }
 
 .square {
-    width: 100px;  /* Larghezza del quadrato */
+    width: 120px;  /* Larghezza del quadrato */
     height: 100px;  /* Altezza del quadrato */
     border-radius: 20px;  /* Angoli stondati */
     background-color: white;  /* Colore di sfondo */
@@ -295,4 +297,23 @@ header {
 .square:hover {
     background-color: #36679B;  /* Cambia colore quando il mouse passa sopra */
     color: white;
+}
+
+.similarity-cell {
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+.low-similarity {
+    background-color: red; /* Rosso per 'Low' */
+}
+
+.medium-similarity {
+    background-color: orange; /* Giallo per 'Medium' */
+}
+
+.high-similarity {
+    background-color: green; /* Verde per 'High' */
 }

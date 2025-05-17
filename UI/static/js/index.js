@@ -58,6 +58,7 @@ function showJob(btnJob, btnResume) {
     textarea.style.height = 'auto';
 
     uploadButton.style.display = "none";
+    uploadButton.value = '';
 
     container.classList.remove('move-down');
 
@@ -86,6 +87,7 @@ function showResume(btnJob, btnResume) {
     textarea.style.height = 'auto';
 
     uploadButton.style.display = "inline-block";
+    uploadButton.value = '';
     
     container.classList.remove('move-down');
 
@@ -156,8 +158,6 @@ async function submitButton(event, textArea){
             }
 
             const data = await response.json();
-            const results = data['similarity'];
-            console.log(results);
 
             const examples = document.getElementById('examples');
             const titleExample = document.getElementById('title-examples');
@@ -168,7 +168,7 @@ async function submitButton(event, textArea){
             const subTitle = document.getElementById('subTitle');
             subTitle.innerHTML = '';
 
-            createTable(results, subTitle);
+            createTable(data['similarity'], subTitle, 'jobResumeMatching');
 
             subTitle.style.marginTop = '50px';
 
@@ -216,18 +216,19 @@ async function submitButton(event, textArea){
             }
 
             const data = await response.json();
-            console.log(data);
-
-            /*const examples = document.getElementById('examples');
+            
+            const examples = document.getElementById('examples');
             const titleExample = document.getElementById('title-examples');
             examples.style.display = 'none';
             titleExample.style.display = 'none';
             container.classList.add('move-down');
 
             const subTitle = document.getElementById('subTitle');
-            subTitle.textContent = data['text'];
+            subTitle.innerHTML = '';
 
-            subTitle.style.marginTop = '50px';*/
+            createTable(data['top_predictions'], subTitle, 'resumeClassification');
+
+            subTitle.style.marginTop = '100px';
 
         } catch (error) {
             console.error('Error during fetch or response parsing: ', error);
@@ -237,16 +238,26 @@ async function submitButton(event, textArea){
     }
 }
 
-function createTable(results, subTitle){
+function createTable(results, subTitle, type){
     const table = document.createElement('table');
     table.className = 'results-table';
 
     const headerRow = document.createElement('tr');
-    ['Rank', 'Job Category', 'Similarity', 'Download CV'].forEach(headerText => {
-        const th = document.createElement('th');
-        th.textContent = headerText;
-        headerRow.appendChild(th);
-    });
+    if(type == 'jobResumeMatching'){
+        ['Rank', 'Job Category', 'Similarity', 'Download CV', 'Similarity'].forEach(headerText => {
+            const th = document.createElement('th');
+            th.textContent = headerText;
+            headerRow.appendChild(th);
+        });
+    }
+    else if(type == 'resumeClassification') {
+        ['Rank', 'Job Category', 'Probability'].forEach(headerText => {
+            const th = document.createElement('th');
+            th.textContent = headerText;
+            headerRow.appendChild(th);
+        });
+    }
+
     table.appendChild(headerRow);
 
     results.forEach(entry => {
@@ -256,25 +267,33 @@ function createTable(results, subTitle){
         nameCell.textContent = entry.rank;
         row.appendChild(nameCell);
 
-        let prettyCategory = entry.cv_category.toLowerCase().replace(/-/g, ' ');
+        let prettyCategory = entry.category.toLowerCase().replace(/-/g, ' ');
         prettyCategory = prettyCategory.charAt(0).toUpperCase() + prettyCategory.slice(1);
         const positionCell = document.createElement('td');
         positionCell.textContent = prettyCategory;
         row.appendChild(positionCell);
 
         const scoreCell = document.createElement('td');
-        scoreCell.textContent = (entry.similarity_score * 100).toFixed(2) + '%';
+        scoreCell.textContent = (entry.value * 100).toFixed(2) + '%';
         row.appendChild(scoreCell);
 
-        const downloadCell = document.createElement('td');
-        const btn = document.createElement('button');
-        btn.textContent = 'Download';
-        btn.className = 'download-btn';
-
-        btn.addEventListener('click', () => downloadCV(entry.cv_category, entry.cv_id));
-
-        downloadCell.appendChild(btn);
-        row.appendChild(downloadCell);
+        if(type == 'jobResumeMatching') {
+            const scoreCell = document.createElement('td');
+            const content = document.createElement('div')
+            const similarityText = getSimilarityText(entry.value); // Function to convert value to text
+            content.textContent = similarityText.text;
+            content.classList.add('similarity-cell', similarityText.class); // Add classes for styling
+            row.appendChild(scoreCell);
+            scoreCell.appendChild(content);
+            
+            const downloadCell = document.createElement('td');
+            const btn = document.createElement('button');
+            btn.textContent = 'Download';
+            btn.className = 'download-btn';
+            btn.addEventListener('click', () => downloadCV(entry.category, entry.cv_id));
+            downloadCell.appendChild(btn);
+            row.appendChild(downloadCell);
+        }
 
         table.appendChild(row);
     });
@@ -283,6 +302,24 @@ function createTable(results, subTitle){
     subTitle.appendChild(table);
 
     requestAnimationFrame(() => {table.classList.add('visible');});
+}
+
+function getSimilarityText(value) {
+    let text = '';
+    let className = '';
+
+    if (value < 0.34) {
+        text = 'Low';
+        className = 'low-similarity';
+    } else if (value >= 0.34 && value <= 0.66) {
+        text = 'Medium';
+        className = 'medium-similarity';
+    } else {
+        text = 'High';
+        className = 'high-similarity';
+    }
+
+    return { text, class: className };
 }
 
 function downloadCV(jobCategory, cvId) {
