@@ -7,3 +7,5 @@ dataset/
 PreProcessingJobs/processed_data/
 
 PreProcessingResumes/processed_data/
+
+MatchingSystem/compareLLM/compare.csv
