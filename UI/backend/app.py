@@ -17,6 +17,7 @@ sbert_model = SentenceTransformer('all-MiniLM-L12-v2')
 
 # Read processed resumes data
 df_resumes = pd.read_csv('../../PreProcessingResumes/processed_data/Resumes.csv')
+df_jobs = pd.read_csv('../../PreProcessingJobs/processed_data/JobDescription.csv')
 
 # Load pre-computed resume embeddings
 resumes_embed = joblib.load('../../Models/resumes_embeddings.joblib')
@@ -33,8 +34,16 @@ def index():
     # Render home page
     return render_template("index.html")
 
-
 # MATCHING SYSTEM
+
+@app.route("/get-job-description/<int:job_id>")
+def get_job_description(job_id):
+    try:
+        job_description = df_jobs[df_jobs['job_id'] == job_id].iloc[0]['description'] 
+        return jsonify({"description": job_description})
+    except IndexError:
+        return jsonify({"error": "Job ID not found"}), 404
+
 
 @app.route("/jobResumeMatch", methods=["POST"])
 def jobResumeMatch():

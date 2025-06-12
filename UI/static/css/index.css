@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*font-family: 'Times New Roman', Times, serif;*/
     font-family: "Montserrat", sans-serif;
     font-size: 95%;
 }
@@ -111,7 +110,7 @@ main {
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-/* Stato “visibile”: parte la transition */
+/* Stato "visibile": parte la transition */
 .results-table.visible {
     opacity: 1;
     transform: translateY(0);
@@ -258,7 +257,7 @@ header {
     pointer-events: none;
 }
 
-/* Permette di clickare l’intero elemento come fosse l’input */
+/* Permette di clickare l'intero elemento come fosse l'input */
 .upload-button {
     position: relative;
     overflow: hidden;
@@ -316,4 +315,128 @@ header {
 
 .high-similarity {
     background-color: green; /* Verde per 'High' */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 70%;
+    }
+    
+    .container.move-down {
+        width: 65%;
+    }
+    
+    #examples {
+        width: 70%;
+    }
+    
+    .toggle-switch {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    
+    .container.move-down {
+        width: 85%;
+    }
+    
+    #examples {
+        width: 90%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .square {
+        width: calc(50% - 20px);
+        min-width: 140px;
+    }
+    
+    .toggle-switch {
+        width: 80%;
+    }
+    
+    .toggle-btn {
+        font-size: 1.2em;
+        padding: 8px 12px;
+    }
+    
+    .results-table th, .results-table td {
+        padding: 8px 15px;
+    }
+    
+    .upload-button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0.8rem;
+    }
+    
+    .container.move-down {
+        width: 90%;
+    }
+    
+    #examples {
+        width: 95%;
+    }
+    
+    .square {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .toggle-switch {
+        width: 90%;
+    }
+    
+    .toggle-btn {
+        font-size: 1em;
+        padding: 6px 10px;
+    }
+    
+    .results-table {
+        font-size: 0.9em;
+    }
+    
+    .results-table th, .results-table td {
+        padding: 6px 10px;
+    }
+    
+    #subTitle {
+        font-size: large;
+        margin-top: 60px;
+    }
+    
+    .input-text {
+        font-size: 0.9rem;
+    }
+    
+    .submit-button {
+        width: 1.8em;
+        height: 1.8em;
+        font-size: 1rem;
+    }
+}
+
+/* Fix for table overflow on small screens */
+@media screen and (max-width: 600px) {
+    .results-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .results-table th, .results-table td {
+        min-width: 100px;
+    }
 }

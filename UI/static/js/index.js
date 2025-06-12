@@ -1,11 +1,6 @@
 let JOBSHOW = true;
 
-let jobDescriptions = [
-    "We're seeking a proactive IT Support Specialist to join our tech team. You will be responsible for diagnosing hardware/software issues, maintaining internal systems, and ensuring smooth IT operations across departments. Familiarity with Windows, macOS, networking basics, and ticketing systems (e.g., Jira, Zendesk) is required.",
-    "We are hiring a passionate English Teacher to lead engaging, student-centered classes at the high school level. You will be responsible for developing lesson plans, assessing student progress, and promoting critical thinking and communication skills. Experience with modern educational technology is a plus.",
-    "Join our engineering department as a Mechanical Engineer, working on the design and development of precision mechanical components and systems. The ideal candidate has experience with CAD software (SolidWorks or AutoCAD), FEA tools, and knowledge of manufacturing processes.",
-    "We are looking for a detail-oriented Financial Accountant to manage general ledger activities, monthly closings, and financial reporting. The role requires solid knowledge of IFRS/GAAP standards and proficiency in ERP systems such as SAP or Oracle."
-]
+let jobDescriptions = [3894997641, 3906224875, 3884830401, 3901943436];
 
 let resumes = [
     { jobCategory: "INFORMATION-TECHNOLOGY", cvId: "16899268" },
@@ -30,8 +25,42 @@ document.addEventListener('DOMContentLoaded', () => {
         square.addEventListener('click', (event) => {showExamples(event)});
     });        
 
+    // Add window resize handler
+    window.addEventListener('resize', handleResize);
+    
+    // Initial call to handle responsive layout
+    handleResize();
+
     showJob(btnJob, btnResume);
 });
+
+// Add resize handler function
+function handleResize() {
+    const container = document.getElementById('container');
+    const examples = document.getElementById('examples');
+    const titleExample = document.getElementById('title-examples');
+    const subTitle = document.getElementById('subTitle');
+    
+    // Adjust container position based on screen size
+    if (window.innerWidth <= 768) {
+        if (container.classList.contains('move-down')) {
+            container.style.bottom = '20px';
+        }
+    } else {
+        if (container.classList.contains('move-down')) {
+            container.style.bottom = '40px';
+        }
+    }
+    
+    // Adjust examples layout
+    if (window.innerWidth <= 480) {
+        examples.style.flexDirection = 'column';
+        examples.style.alignItems = 'center';
+    } else {
+        examples.style.flexDirection = 'row';
+        examples.style.alignItems = 'stretch';
+    }
+}
 
 function textAreaResize(textArea){
     textArea.style.height = 'auto';
@@ -97,14 +126,24 @@ function showResume(btnJob, btnResume) {
     JOBSHOW = false;
 }
 
-function showExamples(event){
+async function showExamples(event){
     const id = event.currentTarget.getAttribute('data-id');
 
     if(JOBSHOW){
-        const textArea = document.getElementById('textarea');
-        textArea.textContent = jobDescriptions[id];
-        textArea.style.height = 'auto';
-        textArea.style.height = (textArea.scrollHeight) + 'px';
+        try {
+            const response = await fetch(`/get-job-description/${jobDescriptions[id]}`);
+            if (!response.ok) {
+                throw new Error('HTTP error! Status: ' + response.status);
+            }
+            const data = await response.json();
+            
+            const textArea = document.getElementById('textarea');
+            textArea.value = data.description;
+            textArea.style.height = 'auto';
+            textArea.style.height = (textArea.scrollHeight) + 'px';
+        } catch (error) {
+            console.error('Error fetching job description:', error);
+        }
     }
     else{
         jobCategory = resumes[id].jobCategory;
@@ -129,7 +168,6 @@ function showExamples(event){
             });
     }
 }
-
 
 async function submitButton(event, textArea){
     event.preventDefault();
@@ -240,6 +278,12 @@ function createTable(results, subTitle, type){
     const table = document.createElement('table');
     table.className = 'results-table';
 
+    // Add responsive wrapper for table
+    const tableWrapper = document.createElement('div');
+    tableWrapper.style.overflowX = 'auto';
+    tableWrapper.style.width = '100%';
+    tableWrapper.appendChild(table);
+
     const headerRow = document.createElement('tr');
     if(type == 'jobResumeMatching'){
         ['Rank', 'Job Category', 'Similarity', 'Similarity', 'Download CV'].forEach(headerText => {
@@ -278,7 +322,7 @@ function createTable(results, subTitle, type){
         if(type == 'jobResumeMatching') {
             const scoreCell = document.createElement('td');
             const content = document.createElement('div')
-            const similarityText = getSimilarityText(entry.value); // Function to convert value to text
+            const similarityText = getSimilarityText(entry.score); // Function to convert value to text
             content.textContent = similarityText.text;
             content.classList.add('similarity-cell', similarityText.class); // Add classes for styling
             row.appendChild(scoreCell);
@@ -297,7 +341,7 @@ function createTable(results, subTitle, type){
     });
 
     table.classList.add('results-table');
-    subTitle.appendChild(table);
+    subTitle.appendChild(tableWrapper);
 
     requestAnimationFrame(() => {table.classList.add('visible');});
 }
