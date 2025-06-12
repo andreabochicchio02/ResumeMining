@@ -1,20 +1,27 @@
-from flask import Flask, render_template, request, jsonify, send_file, abort
-from sentence_transformers import SentenceTransformer
-import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
 import os
 import PyPDF2
-from io import BytesIO
 import joblib
+import pandas as pd
+from flask import Flask, render_template, request, jsonify, send_file, abort
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+from io import BytesIO
 
-RF_Model_loaded = joblib.load('../../Models/random_forest_best_model.joblib')
-tfidf_vect_loaded = joblib.load('../../Models/tfidf_vectorizer.joblib')
+# Load pre-trained model
+model_loaded = joblib.load('../../Models/lr_sbert_pipeline.joblib')
 
+label_encoder = joblib.load('../../Models/label_encoder.joblib')
+
+# Initialize SBERT model for embeddings
 sbert_model = SentenceTransformer('all-MiniLM-L12-v2')
+
+# Read processed resumes data
 df_resumes = pd.read_csv('../../PreProcessingResumes/processed_data/Resumes.csv')
 
+# Load pre-computed resume embeddings
 resumes_embed = joblib.load('../../Models/resumes_embeddings.joblib')
 
+# Create Flask application
 app = Flask(
     __name__,
     template_folder="../templates",
@@ -23,43 +30,49 @@ app = Flask(
 
 @app.route("/")
 def index():
+    # Render home page
     return render_template("index.html")
+
+
+# MATCHING SYSTEM
 
 @app.route("/jobResumeMatch", methods=["POST"])
 def jobResumeMatch():
-    dati = request.get_json()
-    job_sample = dati.get("text", "")
+    # Get JSON payload with job description text
+    data = request.get_json()
+    job_text = data.get("text", "")
 
-    job_embed = sbert_model.encode([job_sample], show_progress_bar=False)
+    # Encode job description and compute cosine similarity against resumes
+    job_embed = sbert_model.encode([job_text], show_progress_bar=False)
     similarity_vector = cosine_similarity(job_embed, resumes_embed).flatten()
 
-    top_matches = similarity_vector.argsort()[::-1][:5]
+    # Select top 5 matching resumes
+    top_indices = similarity_vector.argsort()[::-1][:5]
 
+    # Prepare JSON response with match details
     results = []
-    for rank, cv_idx in enumerate(top_matches, start=1):
+    for rank, idx in enumerate(top_indices, start=1):
         results.append({
-            'cv_id':        int(df_resumes.iloc[cv_idx]['ID']),
-            'category':     df_resumes.iloc[cv_idx]['Category'],
-            'value':        float(similarity_vector[cv_idx]),
-            'rank':         rank
+            'cv_id':    int(df_resumes.iloc[idx]['ID']),  
+            'category': df_resumes.iloc[idx]['Category'],  
+            'score':    float(similarity_vector[idx]),     
+            'rank':     rank
         })
 
     return jsonify({"similarity": results})
 
-@app.route('/download-cv/<job_name>/<cv_id>')
-def download_cv(job_name, cv_id):
-    # Pulizia e normalizzazione base
-    #safe_job = job_name.replace('..', '').replace('/', '').replace('\\', '').replace(' ', '_')
-    #safe_id = cv_id.replace('..', '').replace('/', '').replace('\\', '')
+@app.route('/download-cv/<category>/<cv_id>')
+def download_cv(category, cv_id):
+    file_path = os.path.join('../../dataset/Resumes/PDF', category, f'{cv_id}.pdf')
 
-    # Costruzione del path
-    file_path = os.path.join('../../dataset/Resumes/PDF', job_name, f'{cv_id}.pdf')
-
-    # Verifica se esiste
+    # Send file if exists, else return 404
     if os.path.isfile(file_path):
         return send_file(file_path, as_attachment=True)
     else:
         abort(404)
+
+
+# CLASSIFICATION
 
 def extract_text_from_pdf(file):
     pdf_reader = PyPDF2.PdfReader(file)
@@ -82,24 +95,25 @@ def resume_classification():
     elif 'text' in request.json:
         text = request.json['text']
     
-    features = tfidf_vect_loaded.transform([text])
 
-    probabilities = RF_Model_loaded.predict_proba(features)[0]
+    resumes_embed = sbert_model.encode([text], show_progress_bar=False)
 
-    class_probs = list(zip(RF_Model_loaded.classes_, probabilities))
+    probabilities = model_loaded.predict_proba(resumes_embed)[0]
+
+    classes = label_encoder.inverse_transform(model_loaded.classes_).tolist()
+    class_probs = list(zip(classes, probabilities))
 
     class_probs_sorted = sorted(class_probs, key=lambda x: x[1], reverse=True)
 
     top_3 = class_probs_sorted[:3]
 
-    # Arrotonda le probabilità e costruisci la risposta
     top_predictions = []
 
     for i, (cat, prob) in enumerate(top_3):
         top_predictions.append({
             'rank':         i+1,
             'category':     cat,
-            'value':        prob
+            'score':        prob
         })
 
     return jsonify({"top_predictions": top_predictions})

@@ -8,10 +8,10 @@ let jobDescriptions = [
 ]
 
 let resumes = [
-    { jobCategory: "INFORMATION-TECHNOLOGY", cvId: "10089434" },
+    { jobCategory: "INFORMATION-TECHNOLOGY", cvId: "16899268" },
     { jobCategory: "TEACHER", cvId: "10504237" },
-    { jobCategory: "ENGINEERING", cvId: "10030015" },
-    { jobCategory: "ACCOUNTANT", cvId: "10554236" },
+    { jobCategory: "ENGINEERING", cvId: "27756469" },
+    { jobCategory: "ACCOUNTANT", cvId: "11759079" },
 ]
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,7 +54,7 @@ function showJob(btnJob, btnResume) {
     subTitle.textContent = 'Welcome! Type your job ad to find the most qualified candidates';
     subTitle.style.marginTop = '100px';
 
-    textarea.textContent = '';
+    textarea.value = '';
     textarea.style.height = 'auto';
 
     uploadButton.style.display = "none";
@@ -83,7 +83,7 @@ function showResume(btnJob, btnResume) {
     subTitle.textContent = 'Welcome! Type your CV or upload it and find your job category';
     subTitle.style.marginTop = '100px';
     
-    textarea.textContent = '';
+    textarea.value = '';
     textarea.style.height = 'auto';
 
     uploadButton.style.display = "inline-block";
@@ -130,8 +130,6 @@ function showExamples(event){
     }
 }
 
-//const uploadButton = document.getElementById('upload-button');
-//    const file = uploadButton.files[0];
 
 async function submitButton(event, textArea){
     event.preventDefault();
@@ -244,7 +242,7 @@ function createTable(results, subTitle, type){
 
     const headerRow = document.createElement('tr');
     if(type == 'jobResumeMatching'){
-        ['Rank', 'Job Category', 'Similarity', 'Download CV', 'Similarity'].forEach(headerText => {
+        ['Rank', 'Job Category', 'Similarity', 'Similarity', 'Download CV'].forEach(headerText => {
             const th = document.createElement('th');
             th.textContent = headerText;
             headerRow.appendChild(th);
@@ -274,7 +272,7 @@ function createTable(results, subTitle, type){
         row.appendChild(positionCell);
 
         const scoreCell = document.createElement('td');
-        scoreCell.textContent = (entry.value * 100).toFixed(2) + '%';
+        scoreCell.textContent = (entry.score * 100).toFixed(2) + '%';
         row.appendChild(scoreCell);
 
         if(type == 'jobResumeMatching') {
