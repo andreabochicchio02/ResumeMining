@@ -38,15 +38,12 @@ main {
     margin-top: 30px;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 50%;
+    width: min(50%, 800px);
     border: 1px solid #e0e0e0;
     background: white;
-    transition:
-        transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
-        width     0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.7s, width 0.7s;
 }
 
-/* classe da aggiungere via JS */
 .container.move-down {
     position: fixed;
     bottom: 40px;
@@ -57,20 +54,20 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;   
-    border: None;
+    border: none;
     width: 100%;
 }
 
 .input-text {
-    border: None;
+    border: none;
     width: 95%;
     height: auto;
-    max-height: 100px; /* altezza massima se vuoi */
-    padding: 0rem 1rem 0rem 1rem;
+    max-height: 100px;
+    padding: 0 1rem;
     border-radius: 10px;
     font-size: 1rem;
-    resize: none; /* blocca il resize manuale, gestiamo tutto noi */
-    overflow-y: auto; /* mostra scroll se supera max-height */
+    resize: none;
+    overflow-y: auto;
     transition: 0.3s;
 }
 
@@ -95,55 +92,37 @@ main {
 }
 
 .results-table {
-    /* Usa separate per far funzionare border-radius */
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 20px;
-    overflow: hidden;               /* taglia i bordi dei figli */
+    overflow: hidden;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-
-    /* STILE INIZIALE (nascosta) */
+    margin: 0 auto;
+    max-width: 100%;
     opacity: 0;
     transform: translateY(-20px);
-
-    /* TRANSITION */
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 1s, transform 1s;
 }
 
-/* Stato "visibile": parte la transition */
 .results-table.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.results-table.resume-classification {
+    width: 60%;
+}
+
+.results-table.resume-classification th,
+.results-table.resume-classification td {
+    padding: 12px 60px;
+    font-size: 1.1em;
 }
 
 .results-table th, .results-table td {
     padding: 12px 40px;
     border: 1px solid #ddd;
     text-align: center;
-}
-
-.results-table th {
-    font-size: 1em;
-}
-
-.results-table td {
-    font-size: 0.8em;
-}
-
-/* Angoli superiori arrotondati */
-.results-table th:first-child {
-    border-top-left-radius: 10px;
-}
-.results-table th:last-child {
-    border-top-right-radius: 10px;
-}
-
-/* Angoli inferiori arrotondati */
-.results-table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-}
-.results-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
 }
 
 .results-table th {
@@ -169,7 +148,6 @@ main {
     background-color: #4b7bb5;
 }
 
-/**-----------------------------------------------------------------------------------------------------------*/
 header {
     position: relative;
     height: 70px;
@@ -186,7 +164,7 @@ header {
     background: white;
     border-radius: 25px;
     overflow: hidden;
-    width: 40%;
+    width: min(40%, 600px);
     height: 100%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -226,12 +204,12 @@ header {
     padding: 8px 12px;
     width: 300px;
     border: 1px solid #e0e0e0;
-    border-radius: 0.5rem;        /* 8px arrotondati */
+    border-radius: 0.5rem;
     background-color: #fafafa;
     color: #333;
-    font-size: 0.7rem;          /* ~14px */
+    font-size: 0.7rem;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
     outline: none;
 }
 
@@ -248,7 +226,7 @@ header {
 }
 
 .upload-button::-webkit-file-upload-button {
-    visibility: hidden;  /* Nasconde il default button interno sui WebKit */
+    visibility: hidden;
 }
 
 .upload-button::before {
@@ -257,44 +235,38 @@ header {
     pointer-events: none;
 }
 
-/* Permette di clickare l'intero elemento come fosse l'input */
-.upload-button {
-    position: relative;
-    overflow: hidden;
-} 
-
-
-/*---------------------------------------------------------------------------------------------------------------------*/
-#title-examples{
+#title-examples {
     margin-top: 60px;
 }
 
 #examples {
     display: flex;
-    justify-content: space-around;  /* Distanza tra i quadrati */
-    margin-top: 20px;  /* Distanza dal top del div */
-    width: 50%;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: min(50%, 800px);
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .square {
-    width: 120px;  /* Larghezza del quadrato */
-    height: 100px;  /* Altezza del quadrato */
-    border-radius: 20px;  /* Angoli stondati */
-    background-color: white;  /* Colore di sfondo */
-    color: black;  /* Colore del testo */
+    width: 120px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
     display: flex;
-    align-items: center;  /* Allinea verticalmente il testo */
-    justify-content: center;  /* Allinea orizzontalmente il testo */
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-size: 1em;
-    cursor: pointer;  /* Cambia il cursore quando si passa sopra */
-    transition: background-color 0.3s;  /* Aggiunge un'animazione per il cambio di colore */
+    cursor: pointer;
+    transition: background-color 0.3s;
     border: 1px solid #e0e0e0;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .square:hover {
-    background-color: #36679B;  /* Cambia colore quando il mouse passa sopra */
+    background-color: #36679B;
     color: white;
 }
 
@@ -305,138 +277,63 @@ header {
     text-align: center;
 }
 
-.low-similarity {
-    background-color: red; /* Rosso per 'Low' */
-}
-
-.medium-similarity {
-    background-color: orange; /* Giallo per 'Medium' */
-}
-
-.high-similarity {
-    background-color: green; /* Verde per 'High' */
-}
+.low-similarity { background-color: red; }
+.medium-similarity { background-color: orange; }
+.high-similarity { background-color: green; }
 
 /* Responsive Design */
 @media screen and (max-width: 1200px) {
-    .container {
-        width: 70%;
-    }
-    
-    .container.move-down {
-        width: 65%;
-    }
-    
-    #examples {
-        width: 70%;
-    }
-    
-    .toggle-switch {
-        width: 60%;
-    }
+    .container { width: min(70%, 800px); }
+    .container.move-down { width: min(65%, 800px); }
+    #examples { width: min(70%, 800px); }
+    .toggle-switch { width: min(60%, 600px); }
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
+    .container { 
+        width: min(90%, 800px);
+        padding: 0.8rem;
     }
-    
-    .container.move-down {
-        width: 85%;
+    .container.move-down { width: min(85%, 800px); }
+    #examples { 
+        width: min(90%, 800px);
+        gap: 0.8rem;
     }
-    
-    #examples {
-        width: 90%;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    
-    .square {
-        width: calc(50% - 20px);
-        min-width: 140px;
-    }
-    
-    .toggle-switch {
-        width: 80%;
-    }
-    
-    .toggle-btn {
-        font-size: 1.2em;
-        padding: 8px 12px;
-    }
-    
-    .results-table th, .results-table td {
-        padding: 8px 15px;
-    }
-    
-    .upload-button {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
-    }
+    .square { width: calc(50% - 0.8rem); }
+    .toggle-switch { width: min(80%, 600px); }
+    .toggle-btn { font-size: clamp(1rem, 2vw, 1.2em); }
+    .results-table th, .results-table td { padding: 8px 15px; }
+    .upload-button { width: 100%; margin-left: 0; margin-top: 10px; }
 }
 
 @media screen and (max-width: 480px) {
-    .container {
-        width: 95%;
-        padding: 0.8rem;
-    }
-    
-    .container.move-down {
-        width: 90%;
-    }
-    
-    #examples {
-        width: 95%;
-    }
-    
-    .square {
-        width: 100%;
-        margin: 10px 0;
-    }
-    
-    .toggle-switch {
-        width: 90%;
-    }
-    
-    .toggle-btn {
-        font-size: 1em;
-        padding: 6px 10px;
-    }
-    
-    .results-table {
-        font-size: 0.9em;
-    }
-    
-    .results-table th, .results-table td {
-        padding: 6px 10px;
-    }
-    
-    #subTitle {
-        font-size: large;
+    .container { width: min(95%, 800px); }
+    .container.move-down { width: min(90%, 800px); }
+    #examples { width: min(95%, 800px); }
+    .square { width: 100%; margin: 0.5rem 0; }
+    .toggle-switch { width: min(90%, 600px); }
+    .toggle-btn { font-size: clamp(0.9rem, 1.8vw, 1em); }
+    .results-table { font-size: clamp(0.8rem, 1.5vw, 0.9em); }
+    .results-table.resume-classification { width: 90%; }
+    #subTitle { 
+        font-size: clamp(1rem, 2vw, large);
         margin-top: 60px;
+        padding: 0 1rem;
     }
-    
-    .input-text {
-        font-size: 0.9rem;
-    }
-    
+    .input-text { font-size: clamp(0.8rem, 1.5vw, 0.9rem); }
     .submit-button {
-        width: 1.8em;
-        height: 1.8em;
-        font-size: 1rem;
+        width: clamp(1.6em, 3vw, 1.8em);
+        height: clamp(1.6em, 3vw, 1.8em);
+        font-size: clamp(0.9rem, 1.8vw, 1rem);
     }
 }
 
-/* Fix for table overflow on small screens */
 @media screen and (max-width: 600px) {
     .results-table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
-    
-    .results-table th, .results-table td {
-        min-width: 100px;
-    }
+    .results-table th, .results-table td { min-width: 100px; }
 }

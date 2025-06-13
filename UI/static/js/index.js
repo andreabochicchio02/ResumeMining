@@ -1,7 +1,7 @@
 let JOBSHOW = true;
 
+// Example data
 let jobDescriptions = [3894997641, 3906224875, 3884830401, 3901943436];
-
 let resumes = [
     { jobCategory: "INFORMATION-TECHNOLOGY", cvId: "16899268" },
     { jobCategory: "TEACHER", cvId: "10504237" },
@@ -9,6 +9,7 @@ let resumes = [
     { jobCategory: "ACCOUNTANT", cvId: "11759079" },
 ]
 
+// Initialize UI components and event listeners
 document.addEventListener('DOMContentLoaded', () => {
     let textArea = document.getElementById('textarea');
     let form = document.getElementById('form');
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showJob(btnJob, btnResume);
 });
 
-// Add resize handler function
+// Handle responsive layout adjustments
 function handleResize() {
     const container = document.getElementById('container');
     const examples = document.getElementById('examples');
@@ -62,11 +63,13 @@ function handleResize() {
     }
 }
 
+// Auto-resize textarea based on content
 function textAreaResize(textArea){
     textArea.style.height = 'auto';
     textArea.style.height = (textArea.scrollHeight) + 'px';
 }
 
+// Switch to job matching mode
 function showJob(btnJob, btnResume) {
     const indicator = document.getElementById('toggle-indicator');
     const subTitle = document.getElementById('subTitle');
@@ -97,6 +100,7 @@ function showJob(btnJob, btnResume) {
     JOBSHOW = true;
 }
 
+// Switch to resume classification mode
 function showResume(btnJob, btnResume) {
     const indicator = document.getElementById('toggle-indicator');
     const subTitle = document.getElementById('subTitle');
@@ -126,15 +130,15 @@ function showResume(btnJob, btnResume) {
     JOBSHOW = false;
 }
 
+// Load example content based on selected square
 async function showExamples(event){
     const id = event.currentTarget.getAttribute('data-id');
 
     if(JOBSHOW){
+        // Fetch and display job description example
         try {
             const response = await fetch(`/get-job-description/${jobDescriptions[id]}`);
-            if (!response.ok) {
-                throw new Error('HTTP error! Status: ' + response.status);
-            }
+            if (!response.ok) throw new Error('HTTP error! Status: ' + response.status);
             const data = await response.json();
             
             const textArea = document.getElementById('textarea');
@@ -144,14 +148,12 @@ async function showExamples(event){
         } catch (error) {
             console.error('Error fetching job description:', error);
         }
-    }
-    else{
-        jobCategory = resumes[id].jobCategory;
-        cvId = resumes[id].cvId;
-    
+    } else {
+        // Load and simulate CV file upload
+        const jobCategory = resumes[id].jobCategory;
+        const cvId = resumes[id].cvId;
         const safeJob = jobCategory.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         const safeId = String(cvId).replace(/[^a-zA-Z0-9]/g, '');
-    
         const fetchUrl = `/download-cv/${encodeURIComponent(safeJob)}/${encodeURIComponent(safeId)}`;
     
         fetch(fetchUrl)
@@ -163,125 +165,105 @@ async function showExamples(event){
                 const input = document.getElementById("upload-button");
                 input.files = dataTransfer.files;
             })
-            .catch(error => {
-                console.error("Error uploading the file:", error);
-            });
+            .catch(error => console.error("Error uploading the file:", error));
     }
 }
 
+// Handle form submission
 async function submitButton(event, textArea){
     event.preventDefault();
 
     if(JOBSHOW){
+        // Job matching mode submission
         const text = textArea.value;
-
-        if(text == ''){
+        if(text == '') {
             alert('Please enter something before submitting!');
             return;
         }
 
         try {
+            // Send job description for matching
             const response = await fetch('/jobResumeMatch', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text })
             });
 
-            if (!response.ok) {
-                throw new Error('HTTP error! Status: ' + response.status);
-            }
-
+            if (!response.ok) throw new Error('HTTP error! Status: ' + response.status);
             const data = await response.json();
 
-            const examples = document.getElementById('examples');
-            const titleExample = document.getElementById('title-examples');
-            examples.style.display = 'none';
-            titleExample.style.display = 'none';
-            container.classList.add('move-down');
-
-            const subTitle = document.getElementById('subTitle');
-            subTitle.innerHTML = '';
-
-            createTable(data['similarity'], subTitle, 'jobResumeMatching');
-
-            subTitle.style.marginTop = '50px';
-
+            updateUIForResults(data['similarity'], 'jobResumeMatching');
         } catch (error) {
             console.error('Error during fetch or response parsing: ', error);
             alert('There was a problem processing your request. Please try again.');
-            return;
         }
-    }
-    else{
+    } else {
+        // Resume classification mode submission
         const uploadButton = document.getElementById('upload-button');
         const file = uploadButton.files[0];
         const text = textArea.value;
         
-        if(text == '' && uploadButton.files.length === 0){
+        if(text == '' && uploadButton.files.length === 0) {
             alert('Please enter or upload something before submitting!');
             return;
         }
 
         try {
-            let options = {
-                method: 'POST',
-            };
+            let options = { method: 'POST' };
 
-            if(file && text == ''){
+            // Prepare request based on input type (file or text)
+            if(file && text == '') {
                 const formData = new FormData();
                 formData.append('file', file);
                 options.body = formData;
-            }
-            else if(text !== '' && uploadButton.files.length === 0){
-                options.headers = {
-                    'Content-Type': 'application/json'
-                };
+            } else if(text !== '' && uploadButton.files.length === 0) {
+                options.headers = { 'Content-Type': 'application/json' };
                 options.body = JSON.stringify({ text });
-            }
-            else{
+            } else {
                 alert('Please provide either a file or text, not both!');
                 return;
             }   
 
+            // Send resume for classification
             const response = await fetch('/resumeClassification', options);
-
-            if (!response.ok) {
-                throw new Error('HTTP error! Status: ' + response.status);
-            }
-
+            if (!response.ok) throw new Error('HTTP error! Status: ' + response.status);
             const data = await response.json();
             
-            const examples = document.getElementById('examples');
-            const titleExample = document.getElementById('title-examples');
-            examples.style.display = 'none';
-            titleExample.style.display = 'none';
-            container.classList.add('move-down');
-
-            const subTitle = document.getElementById('subTitle');
-            subTitle.innerHTML = '';
-
-            createTable(data['top_predictions'], subTitle, 'resumeClassification');
-
-            subTitle.style.marginTop = '100px';
-
+            updateUIForResults(data['top_predictions'], 'resumeClassification');
         } catch (error) {
             console.error('Error during fetch or response parsing: ', error);
             alert('There was a problem processing your request. Please try again.');
-            return;
         }
     }
 }
 
+// Update UI after receiving results
+function updateUIForResults(results, type) {
+    const examples = document.getElementById('examples');
+    const titleExample = document.getElementById('title-examples');
+    const container = document.getElementById('container');
+    const subTitle = document.getElementById('subTitle');
+
+    examples.style.display = 'none';
+    titleExample.style.display = 'none';
+    container.classList.add('move-down');
+    subTitle.innerHTML = '';
+
+    createTable(results, subTitle, type);
+    subTitle.style.marginTop = type === 'resumeClassification' ? '100px' : '50px';
+}
+
+// Create and display results table
 function createTable(results, subTitle, type){
     const table = document.createElement('table');
     table.className = 'results-table';
+    if (type === 'resumeClassification') {
+        table.classList.add('resume-classification');
+    }
 
     // Add responsive wrapper for table
     const tableWrapper = document.createElement('div');
-    tableWrapper.style.overflowX = 'auto';
-    tableWrapper.style.width = '100%';
+    tableWrapper.className = 'results-table-wrapper';
     tableWrapper.appendChild(table);
 
     const headerRow = document.createElement('tr');
@@ -346,6 +328,7 @@ function createTable(results, subTitle, type){
     requestAnimationFrame(() => {table.classList.add('visible');});
 }
 
+// Convert similarity score to text and class
 function getSimilarityText(value) {
     let text = '';
     let className = '';
@@ -364,6 +347,7 @@ function getSimilarityText(value) {
     return { text, class: className };
 }
 
+// Download CV file
 function downloadCV(jobCategory, cvId) {
     const safeJob = jobCategory.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     const safeId = String(cvId).replace(/[^a-zA-Z0-9]/g, '');
