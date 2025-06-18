@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from io import BytesIO
 
 # Load pre-trained model
-model_loaded = joblib.load('../../Models/lr_sbert_pipeline.joblib')
+model_loaded = joblib.load('../../Models/sbert_svm_pipeline.joblib')
 
 label_encoder = joblib.load('../../Models/label_encoder.joblib')
 
