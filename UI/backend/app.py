@@ -2,10 +2,14 @@ import os
 import PyPDF2
 import joblib
 import pandas as pd
+import re
+from nltk.tokenize import word_tokenize
 from flask import Flask, render_template, request, jsonify, send_file, abort
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from io import BytesIO
+
+
 
 # Load pre-trained model
 model_loaded = joblib.load('../../Models/sbert_svm_pipeline.joblib')
@@ -33,6 +37,27 @@ app = Flask(
     static_folder="../static"
 )
 
+# preprocessing RESUME or JOB DESCRIPTION
+def preprocess_text(text):
+    
+    text = text.lower()                     # Convert to lowercase
+    text = re.sub(r'[^\w\s]', ' ', text)    # Remove all punctuation (\w = a-z, A-Z, 0-9 and underscore)
+    text = re.sub(r'_', ' ', text)          # Remove underscore
+    text = re.sub('\s+', ' ', text)         # Remove multiple spaces
+
+    tokens = word_tokenize(text)            # Tokenize the text
+
+    processed_tokens = []
+    
+    for token in tokens:
+        # Remove words containing numbers
+        if any(char.isdigit() for char in token):
+            continue
+
+        processed_tokens.append(token)
+    
+    return ' '.join(processed_tokens)
+
 @app.route("/")
 def index():
     # Render home page
@@ -49,14 +74,13 @@ def get_job_description(job_id):
         return jsonify({"error": "Job ID not found"}), 404
 
 
-@app.route("/jobResumeMatch/<int:job_id>")
-def jobResumeMatch(job_id):
-    # Get JSON payload with job description tex
-
-    try:
-        job_description = df_jobs[df_jobs['job_id'] == job_id].iloc[0]['description']     
-    except IndexError:
-        return jsonify({"error": "Job ID not found"}), 404
+@app.route("/jobResumeMatch", methods=["POST"])
+def jobResumeMatch():
+    # Get JSON payload with job description text
+    data = request.get_json()
+    job_text = data.get("text", "")
+    
+    job_description = preprocess_text(job_text)
 
     # Encode job description and compute cosine similarity against resumes
     job_embed = sbert_model.encode([job_description], show_progress_bar=False)
@@ -112,7 +136,10 @@ def resume_classification():
         text = request.json['text']
     
 
-    resumes_embed = sbert_model.encode([text], show_progress_bar=False)
+    processed_text = preprocess_text(text); 
+
+
+    resumes_embed = sbert_model.encode([processed_text], show_progress_bar=False)
 
     probabilities = model_loaded.predict_proba(resumes_embed)[0]
 

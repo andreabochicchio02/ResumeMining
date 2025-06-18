@@ -5,7 +5,7 @@ let jobDescriptions = [3894997641, 3906224875, 3884830401, 3901943436];
 let resumes = [
     { jobCategory: "INFORMATION-TECHNOLOGY", cvId: "16899268" },
     { jobCategory: "TEACHER", cvId: "10504237" },
-    { jobCategory: "ENGINEERING", cvId: "27756469" },
+    { jobCategory: "ENGINEERING", cvId: "10219099" },
     { jobCategory: "ACCOUNTANT", cvId: "11759079" },
 ]
 
@@ -143,7 +143,6 @@ async function showExamples(event){
             
             const textArea = document.getElementById('textarea');
             textArea.value = data.description;
-            textArea.setAttribute('data-job-id', id);
             textArea.style.height = 'auto';
             textArea.style.height = (textArea.scrollHeight) + 'px';
         } catch (error) {
@@ -156,11 +155,6 @@ async function showExamples(event){
         const safeJob = jobCategory.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         const safeId = String(cvId).replace(/[^a-zA-Z0-9]/g, '');
         const fetchUrl = `/download-cv/${encodeURIComponent(safeJob)}/${encodeURIComponent(safeId)}`;
-        
-        const textArea = document.getElementById('textarea');
-        if (textArea.hasAttribute('data-job-id')) {
-            textArea.removeAttribute('data-job-id');
-        }
     
         fetch(fetchUrl)
             .then(response => response.blob())
@@ -181,15 +175,20 @@ async function submitButton(event, textArea){
 
     if(JOBSHOW){
         // Job matching mode submission
-        const job_id = textArea.getAttribute('data-job-id');
-        if(job_id == '' || job_id === null) {
+        const text = textArea.value;
+        if(text == '') {
             alert('Please enter something before submitting!');
             return;
         }
 
         try {
             // Send job description for matching
-            const response = await fetch(`/jobResumeMatch/${jobDescriptions[job_id]}`);
+            const response = await fetch('/jobResumeMatch', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text })
+            });
+
             if (!response.ok) throw new Error('HTTP error! Status: ' + response.status);
             const data = await response.json();
 
