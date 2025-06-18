@@ -15,7 +15,11 @@ label_encoder = joblib.load('../../Models/label_encoder.joblib')
 # Initialize SBERT model for embeddings
 sbert_model = SentenceTransformer('all-MiniLM-L12-v2')
 
-# Read processed resumes data
+# Read JobDescription dataset
+job_dataset = pd.read_csv('../../dataset/JobDescriptions/JobDescription.csv')
+ 
+
+# Read processed data
 df_resumes = pd.read_csv('../../PreProcessingResumes/processed_data/Resumes.csv')
 df_jobs = pd.read_csv('../../PreProcessingJobs/processed_data/JobDescription.csv')
 
@@ -39,20 +43,23 @@ def index():
 @app.route("/get-job-description/<int:job_id>")
 def get_job_description(job_id):
     try:
-        job_description = df_jobs[df_jobs['job_id'] == job_id].iloc[0]['description'] 
+        job_description = job_dataset[job_dataset['job_id'] == job_id].iloc[0]['description'] 
         return jsonify({"description": job_description})
     except IndexError:
         return jsonify({"error": "Job ID not found"}), 404
 
 
-@app.route("/jobResumeMatch", methods=["POST"])
-def jobResumeMatch():
-    # Get JSON payload with job description text
-    data = request.get_json()
-    job_text = data.get("text", "")
+@app.route("/jobResumeMatch/<int:job_id>")
+def jobResumeMatch(job_id):
+    # Get JSON payload with job description tex
+
+    try:
+        job_description = df_jobs[df_jobs['job_id'] == job_id].iloc[0]['description']     
+    except IndexError:
+        return jsonify({"error": "Job ID not found"}), 404
 
     # Encode job description and compute cosine similarity against resumes
-    job_embed = sbert_model.encode([job_text], show_progress_bar=False)
+    job_embed = sbert_model.encode([job_description], show_progress_bar=False)
     similarity_vector = cosine_similarity(job_embed, resumes_embed).flatten()
 
     # Select top 5 matching resumes
