@@ -16,9 +16,9 @@ Given a job description, the system identifies the **top 5 most relevant resumes
 
 Four feature extraction methods were tested: **TF-IDF, Word2Vec, Doc2Vec, and Sentence-BERT**. These were combined with **Logistic Regression, Random Forest, and Support Vector Machine** classifiers. Extensive **grid search**, **5-fold stratified cross-validation**, and **SMOTE** were applied to address class imbalance. **Wilcoxon signed-rank tests** were used to assess statistical significance among model performances.
 
-### Explainability with SHAP & LIME
+### Explainability with SHAP
 
-To interpret model predictions, **SHAP (SHapley Additive Explanations)** and **LIME (Local Interpretable Model-Agnostic Explanations)** were used. These techniques help reveal the most influential words contributing to classification decisions, even when using dense embeddings like SBERT.
+To interpret model predictions, **SHAP (SHapley Additive Explanations)** was used. These techniques help reveal the most influential words contributing to classification decisions, even when using dense embeddings like SBERT.
 
 ### Web-Based User Interface
 
@@ -32,6 +32,8 @@ A user-friendly GUI built with **Flask (Python)** and **HTML/CSS/JavaScript** of
 ## Installation
 
 To run this project, you need to install all the required Python packages. All dependencies are listed in the `requirements.txt` file.
+
+> **Note**: This project was developed and tested using **Python 3.11**. It is strongly recommended to use this version to ensure compatibility and reproducibility.
 
 The `requirements.txt` file was generated using:
 

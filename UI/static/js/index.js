@@ -1,7 +1,7 @@
 let JOBSHOW = true;
 
 // Example data
-let jobDescriptions = [3894997641, 3906224875, 3884830401, 3901943436];
+let jobDescriptions = [3899530316, 3906224875, 3884830401, 3901943436];
 let resumes = [
     { jobCategory: "INFORMATION-TECHNOLOGY", cvId: "16899268" },
     { jobCategory: "TEACHER", cvId: "10504237" },
@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleResize() {
     const container = document.getElementById('container');
     const examples = document.getElementById('examples');
-    const titleExample = document.getElementById('title-examples');
-    const subTitle = document.getElementById('subTitle');
     
     // Adjust container position based on screen size
     if (window.innerWidth <= 768) {
