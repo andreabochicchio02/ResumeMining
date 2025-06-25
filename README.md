@@ -2,13 +2,30 @@
 
 ## Project Overview
 
-In today’s competitive job market, recruiters often receive hundreds of resumes for a single position. Manually reviewing each one is time-consuming and prone to subjectivity, which can lead to qualified candidates being overlooked.
+This project goes beyond basic classification by integrating advanced NLP techniques, rigorous model evaluation, and an interactive user interface. Below are the main components and innovations included in the system, as detailed in the accompanying academic report.
 
-This project aims to build a system that automatically classifies resumes into predefined job categories using only their textual content. This helps HR departments streamline the screening process and reduce potential bias.
+### Resume Classification
 
-Additionally, we’ve implemented a resume-job matching feature that ranks candidates based on their similarity to a given job description, further enhancing the recruitment process.
+Resumes are automatically classified into one of 24 professional job categories (e.g., IT, Healthcare, HR). After extensive experimentation with various machine learning models and text embeddings, the best-performing configuration was a **Support Vector Machine (SVM) trained on Sentence-BERT (SBERT)** embeddings, achieving **76% accuracy** on an independent test set.
 
-We evaluated several machine learning classifiers and feature extraction methods to identify the most effective approach for resume classification. Our comparative analysis offers insights into building practical, AI-powered tools to support fair and efficient hiring.
+### Resume–Job Description Matching
+
+Given a job description, the system identifies the **top 5 most relevant resumes** based on **semantic similarity using SBERT and cosine similarity**. This module was validated against LLM-based human-like assessments (via Gemini), confirming the system's practical alignment with "human evaluation".
+
+### Text Representation & Model Evaluation
+
+Four feature extraction methods were tested: **TF-IDF, Word2Vec, Doc2Vec, and Sentence-BERT**. These were combined with **Logistic Regression, Random Forest, and Support Vector Machine** classifiers. Extensive **grid search**, **5-fold stratified cross-validation**, and **SMOTE** were applied to address class imbalance. **Wilcoxon signed-rank tests** were used to assess statistical significance among model performances.
+
+### Explainability with SHAP & LIME
+
+To interpret model predictions, **SHAP (SHapley Additive Explanations)** and **LIME (Local Interpretable Model-Agnostic Explanations)** were used. These techniques help reveal the most influential words contributing to classification decisions, even when using dense embeddings like SBERT.
+
+### Web-Based User Interface
+
+A user-friendly GUI built with **Flask (Python)** and **HTML/CSS/JavaScript** offers two main functionalities:
+
+* **Resume Classification Page**: Users can paste or upload a resume (PDF) and receive the top 3 predicted job categories.
+* **Job Description Matching Page**: Recruiters can input a job description and retrieve the top 5 matching resumes from the database.
 
 ---
 
