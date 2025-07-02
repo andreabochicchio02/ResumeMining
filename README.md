@@ -46,7 +46,7 @@ pip freeze > requirements.txt
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/andreabochicchio02/ResumeMining.git
+   git clone https://github.com/andreabochicchio02/ResumeClassification.git
    cd ResumeMining
 
 2. **(Optional) Create and activate a virtual environment**:
